@@ -90,6 +90,18 @@ cue reads the picture's `T`.
 | Pan with the subject | `butterflyX`, `panX` | Pans read the butterfly's projected x from `poseAt`, so the flight arpeggio follows it out of frame. |
 | Pinned roots | `build-sample-bank.py` (`measure_tuning`) | Soft low horn notes lack a fundamental: roots pinned from the naming, tuning read from the strongest harmonic. |
 
+## films/passenger — procedural from the kit, 36 s
+
+D major 6/8 from the shared kit alone (`fm` as felt piano, `pluck`, `musicBox`, `glass`), with the
+picture's train and water as foley.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| A note per drawn mark | `drawingNotes` reading `STROKES` | Outlines state the motif, cells arpeggiate one chord per wing, border dots twinkle; retiming the drawing retimes the notes. |
+| Foley from the picture's clocks | `trainBed` (the slosh's rail joints), `drinkAndAnswer` (`SIPS`), flutter in `flightAndLanding` (`pathAt`, `camAt`) | Rail knocks share the joints that tremble the water; wing flutter grows with the butterfly's projected size. |
+| Bars that land on an event | `flightAndLanding` (`bar`, `b0`) | Four 2 s bars from lift-off put the fifth downbeat on the landing. |
+| Dry room with the kit's impulse | `buildScore` (`room.wet` .032) | The kit impulse's hot wet level cut, as Held did; see `docs/sound.md`. |
+
 ## films/lumen — procedural score, 28 s
 
 A self-contained score that does not use the shared kit: its voices are nested inside
@@ -125,6 +137,7 @@ time. Nothing is scheduled live, so the player cannot drift from `renderAudio()`
 | window-seat | `ensureScore` | `syncAudio` | `play`, `pause` (and `seek` via `pause`), the Sound button |
 | roost | `ensureScore` | `syncAudio` | Same as window-seat; its Record control also records the score while the monitor is muted |
 | lumen | `buildScore` (`scorePromise`) | `startSound`, `stopSound` | `setPlaying` (frame loop `tick` only moves the picture) |
+| passenger | `ensureScore` | `syncAudio` | `start`, `pause` (and `seek` via `pause`), the Audio button |
 | emergence | `buildScore(kind)` via `refreshAudio` | `startSound`, `stopSound` | `setPlaying` (frame loop `advancePlayback`); `refreshAudio` on sound toggle or score change |
 
 `refreshAudio` guards against a stale build with a request counter (`audioLoad`), so switching

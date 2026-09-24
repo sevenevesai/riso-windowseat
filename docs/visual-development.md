@@ -19,6 +19,7 @@ broad aesthetic request is permission to art-direct, not a missing brief.
 | Snappy, good pace | Clear actions, short preparation, readable arrivals; shot length follows information. Cut in during an action and out on its last beat: a tail hold (chewing, settling) reads slow even when the action is fast. |
 | Smooth | Direction, eye destination and velocity through handoffs and wraps. A cut can be smooth. |
 | Magical, explosive | A transformation rule staged as preparation, release, aftermath. |
+| A child of two works (repos, films, artists) | List each parent's genes (frame, mechanism, token, medium, music) and find one story that needs both; alternating their scenes is two films. |
 | Original | New viewpoint, action and progression for the subject; new palette or nouns isn't enough. |
 | Like an earlier film | Which to keep: print, rhythm, structure or one effect. Don't silently inherit all four. |
 | A remake of a known video or meme | Measure the actual file: cut times, shot list, what each shot does. Keep its identity (structure, cut rhythm, action) and drop its defects (low resolution, morphing, watermarks) unless asked for. Its cut length is a ceiling, not a slot: trim each shot to its action with a per-shot in/out/speed table, holding it fixed once pacing is approved. |

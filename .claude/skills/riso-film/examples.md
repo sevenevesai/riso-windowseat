@@ -92,6 +92,24 @@ camera returns to the empty case. Window-seat's compositor; the butterfly is a p
 | Still inside a container | `drawArt` (`inside`), `caseOutline` | The emerging body is clipped to below the split line and drawn under the case, so nothing pokes through the shell. |
 | Measured specimen geometry | `measure-wings.py` | Rebuilds `WING` from a hash-pinned Commons photo; credit and license in `FILM.md`. |
 
+## films/passenger — macro to wide in one take, 36 s
+
+A butterfly draws itself in window fog, is warmed alive at sunrise and lands on the glass of
+water; a child of Window Seat and anidoodle. Window-seat's compositor; a perspective dolly over a
+3D carriage.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| Fog as a scatter layer | `fogField`, `fogLayer`, `fogTint`, `fogGlow`, `fogLamps` | World-anchored density on a 270² grid; each plate halved to 34², mixed toward a near-paper tint, glows added at 135², laid through the mask as old·(1 − m) + F·m. Clear marks are cut from the mask at full resolution. |
+| A drawing made in hand order | `STROKES`, `sched`, `tapAt`, `strokeHead`, `drawStrokes` | The schedule is built from stroke lengths and speeds at load, so the colouring-in can speed up; the score reads the same list. |
+| Cells from a fan of veins | `makeWing`, `rayExit`, `scribble` | The outline is ray-cast from the wing base; cells are angular bands inset by the vein width; a boustrophedon scribble clears each one. |
+| Drips on glass | `DRIPS`, `dripState`, `dripsOn`, `beads` | Beads at a stroke's low points run on an eased clock with a seeded meander; glint and dark rim are drawn after the fog. |
+| Dolly with lens rise | `camAt`, `proj`, `planeT`, `kAt` | The horizon row is its own parameter, so everything outside reads only `hy` and the distance clock. |
+| 3D carriage | `carriage`, `rrectPts`, `glassOfWater`, `ripples` | Pane, reveal, sill and tumbler projected per vertex, so the pull-back has parallax. |
+| Planar 3D creature from 2D art | `basis`, `wingPt`, `drawWing`, `drawBody`, `drawButterfly` | The doodle's own geometry folds about the body axis; the frame comes from head and dorsal vectors blended rest → flight → perch; face chosen by the wing normal. |
+| A view kept as pigment | `bakeTexture`, `TEX`, `TEX_GAIN`, `drawWing` (`look.tex`) | The outside at lift-off, baked once and mapped into the wing cells by an affine; the colour freezes as the wings return flat. |
+| Flight keyed where it is seen | `FLIGHT`, `PATH`, `pathAt`, `poseAt` | Keys are screen position and depth, converted through the camera of that moment. |
+
 ## films/lumen — resonance form, 28 s
 
 A centre dot opens eight worlds through irises and sweeps, recollects them through one

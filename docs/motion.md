@@ -85,6 +85,10 @@ at terminal velocity throughout and still airborne at the end.
   Held's catch kinked where a keyed fall handed to an ease from rest. Key with velocities
   (`hk`, `Space.hermite`), start from the previous state, put contacts where geometry actually
   crosses, and blend over a few frames.
+- Swap one representation of a subject for another (a drawing for the creature it becomes) only
+  where the new layer covers the old exactly and the subject is still, then diff adjacent frames.
+  Passenger started its creature layer under its drawing and widened the fog cut to the full
+  silhouette only once the ink covered it: 0.37–0.50 mean luma change per frame across both.
 
 ## Loops and recycled marks
 

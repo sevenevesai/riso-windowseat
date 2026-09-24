@@ -52,6 +52,9 @@ shell, attached details, foreground occluders.
   `halfPlane`). A surface that wraps a part (closed wings round the abdomen) is biased toward its
   own side by the part's radius.
 - Use the same projected shape for the subject and all its plate knockouts.
+- To show the top of a subject seen in profile, turn the subject. A perched butterfly's near wing
+  showed its underside and hid the far wing's coloured face; rolling its back 45° toward the
+  camera and opening wide showed both upper faces (Passenger's `poseAt`, perch).
 - A contact shadow lies on the receiving plane; a cast shadow follows a chosen light direction.
   Don't offset a generic ellipse under everything. Highlights, hatching and seam spacing turn
   with the surface.
@@ -73,6 +76,12 @@ shell, attached details, foreground occluders.
   changing geometry. Arbitrary camera motion may exceed the frame budget: measure on the real
   scene before committing a sequence to it.
 - Interpolate a zoom in `1/z` or `log z`, not `z`, or a big pull-out rushes at one end.
+- A macro framing may need the horizon somewhere other than the frame's middle. Give the camera
+  lens rise (the horizon row `hy` as its own parameter) instead of tilting it; everything at
+  infinity then depends only on `hy` (Passenger's `camAt`, `proj`).
+- Author a subject's path where it is seen when the camera moves under it: keys as screen
+  position and depth, converted through the camera of that moment. Passenger's first flight keys,
+  set in world space, left the frame while the dolly was still close to the pane (`FLIGHT`).
 - Stroke weight under a zoom is a choice. Scaling it with the full zoom gives a 3× close-up a 3×
   nib, heavier than the mark would be redrawn at that size; holding it in pixels makes the
   close-up spindly. `w * zoom ** 0.35` (about 1.5× at 3×) is an unmeasured starting point: judge

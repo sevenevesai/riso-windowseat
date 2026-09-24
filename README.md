@@ -3,8 +3,8 @@
 Procedural risograph films and prints, each a single `index.html` of Canvas 2D and Web Audio:
 no libraries, fonts, images or network calls. The repo began as the release of **Window Seat**.
 Making it, and the two shorts before it, produced a reusable kit of Claude Code skills, craft
-docs and a render harness. Roost, Held, Nonpareil and Eclosion were made with it next, and two
-print series, Cabinet and Sceneries.
+docs and a render harness. Roost, Held, Nonpareil, Eclosion and Passenger were made with it next,
+and two print series, Cabinet and Sceneries.
 
 ![Window Seat, dawn from the viaduct](films/window-seat/poster.png)
 
@@ -21,6 +21,7 @@ source instead, open any `index.html` in a browser and press play.
 | [Held](films/held/) | 70 s | A kite that flies only while something holds its line, scored for found instruments |
 | [Nonpareil](films/nonpareil/) | 70 s | Paper marbling from the first drop to the one print it makes, scored for handpan |
 | [Eclosion](films/eclosion/) | 36 s | A monarch leaves its chrysalis, pumps its wings full and flies, in one take, scored for vibraphone, clarinet and horn |
+| [Passenger](films/passenger/) | 36 s | A butterfly draws itself in the fog on a train window and comes alive at sunrise; a child of Window Seat and [anidoodle](https://github.com/alexgreensh/anidoodle), scored procedurally |
 | [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in call-and-response form |
 | [Emergence](films/emergence/) | 28 s | Lumen's sibling: how machines learned to listen, as nine worlds |
 
@@ -76,6 +77,17 @@ wings are a planar 3D model whose pattern was measured from a specimen photograp
 depth so the body reads right from the side, from behind and in flight. A slow trio in F for
 vibraphone, clarinet and horn shares the picture's clock.
 
+### Passenger
+
+A child of this repo and [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle):
+Window Seat's window and glass of water, and anidoodle's drawing that makes itself and then comes
+alive. Before dawn a butterfly draws itself in the fog on a train window, stroke by stroke in the
+order a finger would. Its clear lines are windows, so lamps slide through the drawing and the dawn
+fills its wings. The sunrise warms it off the glass and the camera pulls back from the pane to the
+seat. It lands on the rim of the glass of water and drinks, and the butterfly-shaped hole it left
+stays in the fog. The score is procedural, from the shared kit: every mark of the drawing is a
+note, and the opening motif is answered as the wings open.
+
 ## Prints
 
 Still series driven like a film (each integer time is one print) and exported as native
@@ -125,7 +137,7 @@ breaks determinism.
 
 | Path | Contents |
 |---|---|
-| `films/` | The seven films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
+| `films/` | The eight films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
 | `prints/` | Three print series: Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
 | `docs/` | The craft: brief, visual development, drawing, figures, scene space, motion, live plates, sound, quality bar |
 | `studies/` | Interactive A/B studies of each technique, and the sound kit |
