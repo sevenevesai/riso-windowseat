@@ -11,8 +11,11 @@ requested or deliberately chosen. A new subject list or palette alone is not a n
 ## Design before inheriting a timeline
 
 - Read the ask for subject, feeling, audience, length and reference exclusions. When choices are
-  open, weigh a few materially different approaches and pick the strongest without adding an
-  approval step.
+  open, first name the treatments this kit already made (a fixed-frame journey, one continuous
+  take, a cut narrative, the Resonance montage) and the first idea anyone would pitch. Then weigh
+  a few approaches that differ in viewpoint, form, signature action and ending, and pick the
+  strongest against those defaults without adding an approval step; keep a default only for a
+  stated reason.
 - Start from what the subject uniquely does, how it changes, or a viewpoint that reveals it; let
   that set rhythm and ending. One evolving scene can carry a film; montage and climax are optional.
 - Before coding, ask whether the progression and ending would survive swapping in an unrelated
@@ -20,11 +23,23 @@ requested or deliberately chosen. A new subject list or palette alone is not a n
   returning motif or requested series format can be intentional.
 - When extending an approved film, keep its direction unless asked to redesign.
 
+Test a narrative plan with these questions before building it; they are checks, not required beats:
+
+- Do the opening seconds show something happening or pose a question? An opening hold needs a reason.
+- What is the turn, and what in the film's world causes it? A change caused only by the edit or a
+  new rendering is weaker than one caused by the subject's material or action.
+- What changes for the subject in each shot? When the only answer is its rendering, cut or merge
+  the shot.
+- Does something planted early return changed at the end? That return is often the ending.
+- Is there time after the last event to read it? A film that stops on its final event feels cut off.
+
 Write `films/<name>/FILM.md` with what another session needs: premise, visual idea and working
 title; duration, passages and why the ending belongs to this subject; composition, palette, shot
 sizes, eye path and any anchor; inspected references and what they establish; actions,
 consequences and holds; moving elements, transitions, loops and shared clocks; sound direction,
-deliberate silences, text or signature; user constraints, chosen form, source and remaining work.
+deliberate silences, text or signature; user constraints, chosen form, source and remaining work;
+risks (what might not read) with the fallback, assumptions made without asking, and a source for
+any date, name or number drawn in frame.
 
 ## Craft docs
 
@@ -35,10 +50,12 @@ require that subject, palette, shot sequence or ending.
 |---|---|
 | [visual-development.md](visual-development.md) | Interpret requests, research subjects, prove the hard frame and action first. |
 | [drawing.md](drawing.md) | Contour, value, tone, depth, ink budget, focus, lettering. |
-| [scene-space.md](scene-space.md) | Perspective, attached detail, motion units and clocks. |
-| [motion.md](motion.md) | Mass, follow-through, handoffs, loop seams, live plates. |
+| [characters.md](characters.md) | People and animals: staging, likeness, hands, arms, contact. |
+| [scene-space.md](scene-space.md) | Perspective, framing, attached detail, motion units and clocks. |
+| [motion.md](motion.md) | Mass, follow-through, handoffs, loop seams, traps that pass verify. |
+| [live-plates.md](live-plates.md) | The per-pixel compositor for frames mostly in motion with tone. |
 | [sound.md](sound.md) | When scoring: kit, sync, transitions, mix, measurement. |
-| [quality-bar.md](quality-bar.md) | Measured print qualities and review cases. |
+| [quality-bar.md](quality-bar.md) | Measured print qualities, playback defects and review cases. |
 
 ## Deliverable and contract
 
@@ -48,15 +65,8 @@ before drawing. Fixed 1080×1080 backing store at 720 px CSS, independent of DPR
 pitch stays stable. Export 30 fps unless told otherwise. Duration is chosen per film (28 s was
 the Resonance format). Animation is time-based, never frame-counted.
 
-```js
-window.__riso = {
-  duration,          // actual film length in seconds
-  ready,             // true only once required baking is complete
-  seek(t),           // synchronously render exactly the frame at t
-  renderAudio(),     // optional: Promise<base64 WAV>, 48 kHz stereo, exactly `duration` long
-  marks,             // optional: visible event times; tools/audio.mjs checks sync against them
-};
-```
+The `window.__riso` contract is in [CLAUDE.md](../CLAUDE.md); each field is specified in
+[tools/README.md](../tools/README.md#the-contract).
 
 - `seek(t)` is pure: repeated seeks and cold jumps give identical pixels. That enables inspection
   and exact export; it does not prove motion continuity. Honour `?t=12.5` on load.

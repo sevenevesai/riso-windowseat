@@ -73,9 +73,18 @@ node render.mjs ../films/<name>/index.html --fps 30 --size 1080 --engine firefox
 ```
 
 Only the full export carries the score; `render.mjs` prints the muxed loudness and true peak.
-Listen through quiet passages, every handoff and the climax with the picture. If you cannot
-listen, say so and leave perceptual quality unclaimed: passing meters did not stop a modal piano
-sounding like MIDI to a human listener.
+When only the score changed, remux instead of re-rendering every frame: take the Firefox WAV that
+`audio.mjs --engine firefox` writes to `out/<name>.wav`, then
+
+```
+ffmpeg -i ../out/<name>.mp4 -i ../out/<name>.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest -movflags +faststart ../out/<name>-rescored.mp4
+ffmpeg -i ../out/<name>-rescored.mp4 -af ebur128=peak=true -f null -
+```
+
+and read the true peak from the second command, as `render.mjs` would. Listen through quiet
+passages, every handoff and the climax with the picture. If you cannot listen, say so, leave
+perceptual quality unclaimed and name three to five times for the user to hear: passing meters did
+not stop a modal piano sounding like MIDI to a human listener.
 
 Record under `## Score` in `FILM.md`: direction, tempo/grid and mode, each sync event and what
 sounds on it, deliberate silences, the measured line (`I −16.0 LUFS, LRA 3.7 LU, TP −2.0 dBTP,

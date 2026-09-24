@@ -3,7 +3,8 @@
 Procedural risograph films and prints, each a single `index.html` of Canvas 2D and Web Audio:
 no libraries, fonts, images or network calls. The repo began as the release of **Window Seat**.
 Making it, and the two shorts before it, produced a reusable kit of Claude Code skills, craft
-docs and a render harness. Roost, Held and Nonpareil were made with it next.
+docs and a render harness. Roost, Held and Nonpareil were made with it next, and two print
+series, Cabinet and Sceneries.
 
 ![Window Seat, dawn from the viaduct](films/window-seat/poster.png)
 
@@ -64,14 +65,30 @@ lens like a turning page, and lands face up and mirrored beside the emptied tray
 is closed-form geometry, so every frame is exact. The drops are the handpan's notes, over a
 slow cello and contrabass line.
 
+## Prints
+
+Still series driven like a film (each integer time is one print) and exported as native
+2160 × 2160 PNGs with `tools/still.mjs`.
+
+**[Cabinet](prints/cabinet/)**: five plates from an imaginary natural-history cabinet (a sectioned
+nautilus, arranged diatoms, a luna moth, a cut agate, a sunflower), each built from its own growth
+geometry and cut as fine line over screened colour.
+
+![Cabinet, plates I–V](prints/cabinet/sheet.jpg)
+
+**[Sceneries](prints/sceneries/)**: a curved viaduct in fog, a cliff village at dusk over its own
+reflection, and a stepped canyon at sunrise.
+
+![Sceneries: viaduct, harbour, canyon](prints/sceneries/sheet.jpg)
+
 ## How they're made
 
-I directed each film; Claude Code (Anthropic's coding agent) wrote the code, using the skills,
-rules and docs in this repo. A work is designed in its `FILM.md`, its hardest frame is proved
-first, and then it is inspected as frame strips, 1:1 crops and loudness sheets rendered by
-`tools/`. Every frame is a pure function of time (`seek(t)`), so any moment can be inspected
-exactly and the MP4 cannot drop frames. Each `FILM.md` records the design decisions and
-measurements, and lists the film's remaining weaknesses.
+I directed each work; Claude Code (Anthropic's coding agent) wrote the code, using the skills,
+rules and docs in this repo. A work is designed in its `FILM.md` or `PRINT.md`, its hardest frame
+is proved first, and then it is inspected as frame strips, 1:1 crops and loudness sheets rendered
+by `tools/`. Every frame is a pure function of time (`seek(t)`), so any moment can be inspected
+exactly and the MP4 cannot drop frames. Each record keeps the design decisions and measurements,
+and lists the work's remaining weaknesses.
 
 ## Make your own
 
@@ -98,8 +115,8 @@ breaks determinism.
 | Path | Contents |
 |---|---|
 | `films/` | The six films, each with its `FILM.md`; Window Seat, Roost, Held and Nonpareil include sample credits and bank rebuild scripts |
-| `prints/workings/` | A still print series and the print kit new works start from |
-| `docs/` | The craft: brief, visual development, drawing, scene space, motion, sound, quality bar |
+| `prints/` | Three print series: Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
+| `docs/` | The craft: brief, visual development, drawing, figures, scene space, motion, live plates, sound, quality bar |
 | `studies/` | Interactive A/B studies of each technique, and the sound kit |
 | `tools/` | Scaffolding, verification, contact sheets, audio analysis and MP4 export ([README](tools/README.md)) |
 | `.claude/` | Skills, the ink-plate rule and the determinism hook |

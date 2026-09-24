@@ -6,7 +6,8 @@ elements); read it when animating anything.
 Subject/camera/transition separation and long edits: [visual-development.md](visual-development.md).
 Distance travel, speed units and shared geometry: [scene-space.md](scene-space.md). Scoring:
 [sound.md](sound.md). Transition and loop lessons come from rendered revisions of
-[Lumen](../films/lumen/FILM.md). Unproved techniques are labelled.
+[Lumen](../films/lumen/FILM.md). Unproved techniques are labelled. Frames mostly in motion with
+tone use the compositor in [live-plates.md](live-plates.md).
 
 ## The motion kit
 
@@ -155,49 +156,27 @@ first; pale ink straight over it prints mud (study 11 left).
 - The nearest plane occludes light: knock the foreground out of every opening and glow band so the
   fire doesn't erase its ground.
 
-## Live plates: when most of the frame moves
+## Traps that pass verify
 
-For frames mostly in motion with tone (parallax landscapes, blurred foregrounds, moving sky
-gradients) use per-pixel live plates, as in `compose()` in
-[films/window-seat/index.html](../films/window-seat/index.html). Each frame draws continuous
-coverage as alpha into one CPU canvas per ink (`willReadFrequently`), thresholds per pixel against
-a page-pinned table, and multiplies onto paper: gradients print as dot size and the screen can't
-swim. Four plates cost ~110 ms/frame at 1080 in Firefox: export is fine, playback well below 30 fps.
+Each of these is pure in `t`, so `verify.mjs` passes, and each was seen at playback speed. Strips,
+frame differences and the pop scan find them
+([quality-bar.md](quality-bar.md#defects-seen-at-playback-speed)).
 
-- Build each ink's threshold table once: screen distance field, low-frequency mottling,
-  starvation flecks (255 = never prints), per-pixel jitter. Yellow's 5 px tile holds few levels;
-  a smooth shift crossed them in hard blotches until jittered.
-- Own a value with destination-out then `lighter` at the coverage: old·(1−α) + cov·α. With
-  source-over second, soft and smeared edges printed lighter than both neighbours.
-- Motion blur: n shutter samples into a mask with `lighter` at 1/n; full coverage survives where
-  the shape stays, the smear fades. Shutter distance comes from the film's distance clock.
-- Draw the pinned interior (frame, wall, props) after the view through an evenodd aperture.
-- Reflection (`reflectPlates`): copy coverage above the waterline, flipped, in 3 px slices with a
-  sine x-offset; screened afterwards, so it can't swim.
-- Hidden switch (`veil`): push every plate toward one colour; at D = 1 the view is uniform and the
-  scene can change underneath (fog, rain haze), as can a passing object filling the window.
-- Drops on glass: snapshot the plates, draw each drop's region inverted and minified in its clip.
-  Drive runs by distance travelled, so drops stream at speed and fall straight when stopped. At
-  4.6 px pitch, drops under ~8 px radius read as dirt.
-- Fireworks: each spark analytic from burst age with drag and gravity, into a mask that knocks out
-  the night before inking. Star trails are arcs of length ω·(t − t0).
-- Sun glitter on water ([Roost](../films/roost/FILM.md)): glints switching on and off at
-  5.3 rad/s were reported as flashing, and printed over the reflected flock. Keep glints at full
-  ink and grow or shrink them over about 2 s; fading 1 px dashes by coverage drops them below the
-  screen. Mirror the subject into its own mask with the water's ripple and cut that from the glint
-  mask.
-
-Cost. A character film on five live plates ran 90–200 ms/frame in Firefox, of which screening was
-only ~16 ms. Unbuffered in-page playback at that cost was reported as "choppy" before the art was
-judged; the generated player now buffers slow films (tools/new-riso.mjs). Before optimising,
-wrap the named draw functions and time a few sequential seeks per shot. What paid off:
-
-- `ctx.filter = 'blur()'` processes the whole canvas. Blur each soft shape once into a scratch
-  canvas limited to its padded bounding box, then stamp that mask on every plate at its coverage.
-- Many similar strokes (strands, hairs): batch back-to-front groups into one path per pass;
-  weaving survives between groups and a hundred strands cost a few dozen fills.
-- A shot's static backdrop: draw it once, keep `getImageData` copies of the plates and
-  `putImageData` them back on later frames of that shot. The copy is exact, so seeks stay pure.
+- A cyclic parameter driving a pose must move well under π per frame. A fork twirled 2.5 turns in
+  0.45 s and its grip roll aliased between extremes on alternate frames, read as a glitching wrist.
+- Interpolate angles the short way; a key passing through 0 instead of π flipped a wrist in one
+  frame.
+- Offsets between repeated periodic motions must not be whole periods: two juggled cards offset by
+  one full throw shared one arc and only one showed. Use period ÷ n, opposite directions, or an
+  irrational step for a crowd.
+- Retiming an action can strand an old key between the new ones, and the eased track yanks the
+  part out and back. After retiming, list every key in the shot.
+- A remapped clock (a freeze, a compressed hold, slow motion, `?rate`) must reach everything in
+  that passage: lights, glints, particles and their sound cues. A beacon reading raw `t` kept
+  turning through a freeze. Grep the passage for raw `t`.
+- A one-shot element (flash, beam, burst, halo, knockout) takes its entry and exit from the event
+  data and draws nothing outside them, on every plate it touches. A light cone with no off state
+  tinted later shots; a faint leftover overlay browns frames long after its beat.
 
 ## Judging motion
 
@@ -216,12 +195,9 @@ node shoot.mjs ../films/<name>/index.html --range 6.6:6.9:0.0333333333 --sheet -
 - `shoot.mjs` rounds filenames to milliseconds; save sub-millisecond pairs separately.
 - A cropped pixel diff locates a reset; compare it with neighbouring motion rather than demanding
   identical frames. Check the same moment in the encoded MP4.
-- Flicker is measured, not eyeballed: count the pixels that change between adjacent frames inside
-  the region (Roost's glitter: 5.4% → 0.1%). A before/after crop that looks identical may simply
-  miss the effect.
-- Choppiness is measured, then watched in a silent range render; sheets can't show it. Report
-  each moving point's largest frame-to-frame jump relative to its neighbours (Held's
-  `jitter.mjs`: tail 31.0 → 4.6 px); remaining maxima should be physical events, not jumps.
+- Flicker, choppiness, pops and held stretches are measured, not eyeballed; sheets can't show
+  them. [quality-bar.md](quality-bar.md#defects-seen-at-playback-speed) maps each symptom to its
+  measurement. A before/after crop that looks identical may simply miss the effect.
 - Is a part really still? Diff two frames and print the bounding box: an apparently moving half
   was the other half's branch crossing the midline.
 - Is a seam real? Sample the column: a bright horizon band was ordinary halftone alternating

@@ -43,6 +43,11 @@ moment on that time by starting `attack` earlier.
 - Exponential ramps can't reach 0 (the kit floors at `1e-4`). `setValueCurveAtTime` owns its
   parameter for its span. Stop sources after release, never with gain open. Cache the render so
   `renderAudio()` and the player share it.
+- An AudioParam sums its connected inputs with its automation, so modulation wired into an
+  enveloped gain adds to the envelope instead of scaling it: in an explainer film a ±0.5 LFO on a
+  0.04 envelope played about 12× too loud. Put tremolo and wobble on their own gain stage ahead of
+  the envelope. The kit's `wind` adds its gusts this way; at its default depth the room tail masks
+  the difference (its fall measured within 0.3 dB of a corrected version).
 
 ## Sound follows a visible event
 
@@ -175,9 +180,13 @@ node audio.mjs ../films/<name>/index.html --engine firefox --ffmpeg
   adds ffmpeg's ebur128 reading (within 0.1 on films measured).
 - Measurements support listening, not replace it. Listen to quiet passages, handoffs and the
   climax with picture in the full muxed export (section renders are silent). `render.mjs` prints
-  the muxed loudness and true peak, since AAC can raise true peak. If you can't listen, report the
-  measured checks and leave perceptual quality unclaimed. Record direction, sync events, silences
-  and what was measured or heard in `FILM.md`.
+  the muxed loudness and true peak, since AAC can raise true peak. If the muxed peak passes
+  −1 dBTP while the WAV doesn't, fix the source, not the target: zero-attack onsets ring in the
+  codec (an explainer's overshoot fell from 4.3 to 0.7 dB with ~1.5 ms onset ramps and a 16.5 kHz
+  low-pass on the master). If you can't listen, report the measured checks, leave perceptual
+  quality unclaimed and name three to five times for the user to hear (first hit, the turn, the
+  loudest moment, a handoff, the ending). Record direction, sync events, silences and what was
+  measured or heard in `FILM.md`.
 - A local revision can change approved audio without touching its notes. Moving Nonpareil's
   next bass entry re-cut the held note before it (`bowSpan` spreads its hops over the span),
   leaving a residual only 8 dB down inside the approved section. Check a revision against the

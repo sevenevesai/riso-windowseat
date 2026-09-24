@@ -48,12 +48,42 @@ mix per [sound.md](sound.md).
 - Pops at cuts where a scene's first frame differs from its settled state.
 - Three inks stacking to undifferentiated brown.
 
-When a passage is rejected as off-pace or lower in quality than an approved one, measure both
-before redesigning: shoot them at the same spacing (0.5 s) and compare mean saturation per frame
-and mean change per step, with 1:1 crops. Nonpareil's rejected tail fell from 0.57–0.62
-saturation to 0.07 on a plain sheet and had 13 of 52 static steps where the approved half had one
-0.5 s run; the redesign held a 0.42 minimum with only the closing hold static
-([FILM.md](../films/nonpareil/FILM.md)).
+## Defects seen at playback speed
+
+Every correction to an approved film so far was something seen at speed that sheets and
+`verify.mjs` did not show. Measure the symptom before redesigning, then watch a silent range
+render to confirm.
+
+| Reported as | Measure | Seen in |
+|---|---|---|
+| Flashing, shimmer | Share of pixels changing between adjacent frames inside the region | Roost's sun glitter: 5.4% → 0.1% |
+| Choppy, glitching chain | Each moving point's largest frame-to-frame jump against its neighbours | Held's tail (`jitter.mjs`): 31.0 → 4.6 px |
+| A one-frame pop mid-shot | Pop scan of the decoded MP4 (below) | Three bugs in a figure film that had passed verify and strips |
+| A pop at an internal change | Frames at t ± 0.0001 around each face flip, completion and handoff; count pixels differing by over 32 in any channel | Two pops in a folding kite, zero after the fix |
+| Slow, "the actor is waiting" | `review.mjs --mp4` stillness runs; near-zero change in a shot's first 0.2–0.4 s | Several shots of a remake opened and ended on idle holds |
+| A passage off-pace or below the rest | Shoot it and an approved passage at 0.5 s; compare mean saturation per frame and mean change per step, with 1:1 crops | Nonpareil's tail: saturation 0.57–0.62 fell to 0.07, 13 of 52 static steps against one run ([FILM.md](../films/nonpareil/FILM.md)); the redesign held 0.42 |
+| Strobing, mushy dots | Encode the range early; read its fastest frame at 1:1 | Fast camera moves strobe without [shutter samples](live-plates.md) |
+
+The pop scan decodes every frame at 360 px, blurs it, and flags pairs far above their local
+median, skipping hard cuts. Fast real motion also flags: open each hit at 1:1 before fixing.
+
+```python
+import glob, subprocess, tempfile, numpy as np
+from PIL import Image, ImageFilter
+fps, video = 30, 'out/<name>.mp4'
+with tempfile.TemporaryDirectory() as tmp:
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-i', video, '-vf', 'scale=360:360', f'{tmp}/f_%05d.png'], check=True)
+    im = [np.asarray(Image.open(f).convert('L').filter(ImageFilter.GaussianBlur(2)), float) for f in sorted(glob.glob(f'{tmp}/f_*.png'))]
+d = np.array([0] + [np.abs(im[i] - im[i - 1]).mean() for i in range(1, len(im))])
+cuts = [i for i in range(1, len(d)) if d[i] > 25]
+for i in range(1, len(d)):
+    loc = np.median(d[max(1, i - 4):i + 5])
+    if all(abs(i - c) > 1 for c in cuts) and d[i] > max(4, 2.6 * loc):
+        print(f'{i / fps:.2f}s  diff {d[i]:.1f} vs local {loc:.1f}')
+```
+
+H.264's 4:2:0 chroma softens the finest coloured screens and lines; judge fine print on native
+PNGs, not the MP4.
 
 ## Review cases
 

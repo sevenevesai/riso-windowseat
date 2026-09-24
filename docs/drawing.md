@@ -82,6 +82,15 @@ the signature riso gesture. `shade` wraps it.
   bottom, a colour band, not land. Use `plane()`.
 - Start a ramp from a visible point. Twice a dark end sat under a later knockout and the opening
   printed as a bright patch.
+- A feature smaller than a few screen cells can't carry a dot-size ramp: model it with shape and
+  solid overprints. Roost's starlings are solid 2–3 px dots; a sunflower's ~20 px florets at a
+  6.8 px pitch were shaped, not shaded.
+- The kit's `buildScreen` puts dot centres on pixel corners for several angles, so dots grow
+  0 → 4 → 12 px and a gentle ramp contours into rings. Computed from the kit at 1080, yellow,
+  orange and violet get one tone step below 25% coverage (two when centres are shifted half a
+  pixel, `+ 0.5` on the lattice positions); at 2160 yellow gets three (five). A large print can
+  shift its own copy, as [Cabinet](../prints/cabinet/PRINT.md) did; the kit keeps the films' look
+  until the change is judged in motion.
 - Open a dark ground with a soft knockout (`shade(…, {cut: true})`) before a light ink lands:
   yellow over green prints lime, on opened paper it prints as light. A soft knockout also lets a
   halo fade instead of ending on a cut circle.
@@ -121,6 +130,10 @@ marks. Spray over a whole form eats the silhouette; keep it where the light is.
 - Vary shot size: cropped by two edges, or a tenth of the frame in empty sky, not everything
   middling and centred.
 - One area of high detail; simplify the rest. Three things the same size always compete.
+- Reserve the subject's zone at its hero moment before placing clutter, particles, glints or
+  foreground occluders, and check that frame, not the establishing one. Roost's sun glints printed
+  over the reflected flock; in another code-drawn film a prop placed early covered the hero's
+  entrance.
 - Ground objects through contact, occlusion and the receiving surface's light; `bed` is a
   shortcut for a soft contact shadow, not a substitute for that surface.
 - Originality is mostly viewpoint and moment: the instant the kettle whistles, a wave as an
@@ -186,6 +199,10 @@ the same external skill, unproven here):
 - **Sunken:** in the ground's plate before its haze and knockouts; atmosphere rolls over it.
 - **Same layer:** a `Path2D` on the subject's plate at its coverage and screen; part of the impression.
 - **Overprinted:** own plate and offset, printed last; the newest thing on the sheet.
+
+A word meant to be read stays legible for at least 0.5 s plus one second per three words after
+its write-on ends, and lands about 0.6 s after a camera move begins (caption timing from an
+explainer kit; unproven here).
 
 Rather starved than bold. Fade on alpha and width, never coverage (a screen breaks a thin stroke
 into dashes). Text follows the scene's physics (dissipation, light, current); a square line in

@@ -110,17 +110,10 @@ supercells.
 | Knockouts | `carve`, `print`, `shade` with `cut` | A knockout at full coverage clears the screen gaps; highlights return to bare paper. |
 | Drawn year digits | `YEAR`, `yearPath` | Small numerals as paths, sunk into or carved from the ground plate. |
 
-## prints/workings — print-kit still
+## prints/
 
-A series of stills where every mark is on a baked plate, so `shade` coverage ramps are used
-everywhere a film would settle for a flat pass.
-
-| Technique | Where | Why copy it |
-|---|---|---|
-| Native bake size | `OUT`, `K`, `PITCH` | Pitch scales with the bake size so a larger print re-rasterises instead of resizing a screen. |
-| Stills driven like a film | `PRINTS`, `window.__riso` (`seek: render`) | Each integer time is one print; the tools shoot it unchanged. |
-| Baked coverage ramps | `shade` | Gradient stops screened at bake time. |
-| Structure helpers | `towerPath`, `hangPoints`, `span` | Seeded architecture and sagging cables. |
+The print series, including `prints/workings` (whose print kit `tools/new-riso.mjs` copies),
+are mapped in [riso-still/examples.md](../riso-still/examples.md).
 
 ## studies/
 

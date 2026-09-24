@@ -8,8 +8,7 @@ paths:
 # Ink plates and canvas traps
 
 A scene is drawn once per ink into a coverage layer, screened into halftone dots, tinted, and
-multiplied onto the paper; alpha is tone, so `tone(g, 0.4)` means a 40% dot screen. Unintended
-overlap causes muddy ink; clear the underlying plate where a bright subject needs paper.
+multiplied onto the paper; alpha is tone, so `tone(g, 0.4)` means a 40% dot screen.
 Plate correctness does not fix drawing, perspective or pacing; see `docs/visual-development.md`.
 
 ## Knockouts
@@ -45,7 +44,7 @@ Plate correctness does not fix drawing, perspective or pacing; see `docs/visual-
   or the previous scene reads through all its light areas.
 - An `inkPass` is a full-canvas operation screened at one flat coverage. Batch every shape of
   one ink into a single pass. Spatial tone on a live element needs `bandPass`, and a bright one
-  over a dark ground needs `relight` first; moving frames use live plates (both in `docs/motion.md`).
+  over a dark ground needs `relight` first (`docs/motion.md`); moving frames use `docs/live-plates.md`.
 - `coverage` is the dot screen, `alpha` is plate opacity. Fade line work on alpha and width:
   punching a screen through a 5px stroke breaks it into dashes rather than lightening it. A knock
   narrower than the screen pitch (~4.6 px) or under ~0.4 barely prints (Nonpareil's water

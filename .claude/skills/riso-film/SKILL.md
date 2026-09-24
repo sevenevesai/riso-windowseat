@@ -13,9 +13,10 @@ Reference exclusions in the user's request take precedence.
 ## 1. Direction
 
 Read `.claude/rules/riso-plates.md`, `docs/brief.md` and `docs/visual-development.md` first.
-Add `docs/drawing.md` and `docs/motion.md` for what is being built, `docs/scene-space.md` for
-complex objects, perspective or precise speed changes, and `docs/quality-bar.md` for print finish.
-Load `docs/sound.md` only when scoring. [examples.md](examples.md) maps techniques to the shipped
+Add `docs/drawing.md` and `docs/motion.md` for what is being built, `docs/characters.md` for
+people, animals or hands, `docs/scene-space.md` for complex objects, framing, perspective or
+precise speed changes, and `docs/quality-bar.md` for print finish and playback defects. Load
+`docs/sound.md` only when scoring. [examples.md](examples.md) maps techniques to the shipped
 films; open the matching source before inventing a routine that already exists.
 
 Extract subject, feeling, scope and constraints. For an open aesthetic brief, choose a direction
@@ -33,15 +34,17 @@ one continuous take of one event (`films/roost`, `films/nonpareil`) is an equall
 
 Before filling a timeline, inspect real subject references and build one representative hard
 frame. For complex art, compare small viewpoint/value thumbnails first. When the request remakes
-a known video, measure the file itself (cuts, shots, actions) before choosing what to keep. A real
-person's likeness is measured on a reference grid and checked in a side-by-side debug render
-(`docs/visual-development.md`, people). Hands and arms get the same care: a posable 3D hand per
-grip compared beside photographs of that grip, and 3D-solved arms, tuned before shots. Fix
-generic silhouettes and inconsistent perspective before adding grain, hatching or more scenes.
+a known video, measure the file itself (cuts, shots, actions) before choosing what to keep.
+Figures get debug views and photo comparisons before shots: likeness judged at recognition scale,
+a posable 3D hand per grip, 3D-solved arms (`docs/characters.md`). A subject that recurs at
+several sizes goes on one sheet at its smallest and largest size first. Fix generic silhouettes
+and inconsistent perspective before adding grain, hatching or more scenes.
 
 Then build a short sample of the hardest action: the subject doing something, not just arriving.
-Check attachments, mass, timing and aftermath. For a long film, make a full-duration silent rough
-cut before polishing. Set holds and cut lengths from information and action, not equal slots or an
+Check attachments, mass, timing and aftermath. Encode that sample as soon as it exists
+(`render.mjs --from a --to b`) and read its fastest frame at 1:1: strobing, mushy dots and bitrate
+only show in the MP4. For a long film, make a full-duration silent rough cut before polishing.
+Set holds and cut lengths from information and action, not equal slots or an
 inherited timeline. These are working checks, not extra approval steps.
 
 ## 3. Build from a clean engine
@@ -55,15 +58,16 @@ and motion kits plus `tools/lib/visual-kit.mjs`; it gives a blank `drawArt(t)`, 
 `__riso` contract. Edit the generated HTML directly. Copy routines from donors
 (`prints/workings`, `studies/index.html`, the films in examples.md), never their scenes. When most
 of the frame moves with tone (parallax, smears, moving gradients), copy the live-plate compositor
-from `films/window-seat/index.html` (see `docs/motion.md`).
+from `films/window-seat/index.html` (see `docs/live-plates.md`).
 
 - Bake static scenes at displayed size. Screen moving geometry in page space. Reproject vectors
   for camera moves; never resize a screened bitmap.
 - Share geometry between marks and their knockouts, and one clock between actions coupled
   across shots.
 - Build in small batches; inspect each scene at its real duration and its render cost. Live
-  plates run 100–200 ms/frame; profile per draw function before optimising (`docs/motion.md`,
-  live plates). The generated player buffers slow films, so share MP4s for judging pace.
+  plates run 100–200 ms/frame; profile per draw function before optimising
+  (`docs/live-plates.md`, cost). The generated player buffers slow films, so share MP4s for
+  judging pace.
 - Keep `__riso.shots = [{id,start,end,readAt,action,transition}]` derived from the one
   authoritative timeline; `readAt` is a representative visible moment. No second set of timing
   constants.
@@ -78,8 +82,10 @@ node shoot.mjs ../films/<name>/index.html --range 6.6:6.9:0.0333333333 --sheet -
 
 Use this film's event times. Read every sheet you generate. `verify.mjs` proves seek purity in
 both browsers across the actual duration and shot boundaries; it proves repeatability, not beauty
-or stable adjacent-frame texture, and a sheet cannot judge pacing or choppiness at speed. Measure
-jitter in moving chains and watch a silent range render (`docs/motion.md`, judging motion).
+or stable adjacent-frame texture, and a sheet cannot judge pacing or choppiness at speed. When it
+fails, its `DIAGNOSIS` line names the per-seek state or the earlier frame that poisons the time.
+Measure the playback defects in `docs/quality-bar.md` (flicker, jitter, pops, held stretches) and
+watch a silent range render; `docs/motion.md` lists the traps that pass verify.
 
 Inspect frame-spaced strips around handoffs, contacts, mask completions and visible wraps, on both
 sides of each reset. For a retimable effect check 0.5x, 1x and 2x and move coupled clocks and holds
@@ -92,14 +98,23 @@ delivery evidence.
 ```
 node render.mjs ../films/<name>/index.html --from 0 --to 6 --engine firefox --out ../out/section.mp4
 node render.mjs ../films/<name>/index.html --fps 30 --size 1080 --engine firefox
+node review.mjs ../films/<name>/index.html --mp4 ../out/<name>.mp4
 ```
 
-Range renders are silent; render the whole film after picture review. Score with `riso-score`
-first when sound is wanted. Decode the final MP4 and check duration, dimensions, frame count and
-audio; inspect encoded motion too. Record evidence, remaining weaknesses and anything not reviewed
-in `FILM.md`. Technical validity is not the user's artistic approval.
+Range renders are silent; render the whole film after picture review. `review.mjs --mp4` lists
+every held stretch with its shot; confirm each is an intended hold (`--from` for a range render).
+Score with `riso-score` first when sound is wanted. Decode the final MP4 and check duration,
+dimensions, frame count and audio; inspect encoded motion too. Record evidence, remaining
+weaknesses and anything not reviewed in `FILM.md`. Technical validity is not the user's artistic
+approval.
 
 For revisions, read `FILM.md` and edit the authoritative HTML; never rerun an old assembly script
 over revised art. Keep the previous render for comparison and preserve approved pacing and score
 during local fixes. Cut secondary detail before compromising the hard frame, the full progression
 or verification.
+
+When handing a revision to a fresh session, write a self-contained prompt: the film path; read
+`FILM.md` first and treat `index.html` as authoritative; the user's words quoted; what is approved
+and must not change, by time range; copy the delivered MP4 and WAV to `-v1` before editing; each
+suspected cause labelled unconfirmed with the check that would confirm it; and how to read the
+file safely (sampled films carry multi-MB lines). Keep it in the film folder (`HANDOVER.md`).

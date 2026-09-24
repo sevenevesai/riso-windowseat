@@ -26,6 +26,10 @@ const key = cam.polygon([desk(.2,.2),desk(.24,.2),desk(.24,.24),desk(.2,.24)]);
 - Block dimensions with a few solid masses, then draw the real shell, joints, recesses and
   silhouette; a box with many lines is still a box. Projection supports observed form; it doesn't
   impose a geometric style. Organic contours and deliberate graphic flattening remain valid.
+- Frame by numbers, not by eye: take the projected bounds of the subject plus everything attached
+  to it at its hero moment (rope, rider, reflection, wake, the flock's spread), then scale so that
+  span fits the safe area and place it. A pinhole camera shows world height H at depth z as
+  `focal × H / z` px. In another code-drawn film, framing set by eye took five rounds of fixes.
 
 ## Occlusion and light
 
@@ -46,6 +50,10 @@ shell, attached details, foreground occluders.
   Z scales by H/(H − Z) about the frame centre. The face turns over where the projected order along
   the curve reverses, which also mirrors it. Screening stays in `compose()`, so no screened bitmap
   is resized (Nonpareil's `sheetAt`, `drawSheet`).
+- A rigid flap (kite panel, box lid, page of a stiff book) rotates about a persistent crease axis
+  with shared vertices that cannot separate. Flip its ink by projected polygon facing at the
+  edge-on pose, and fade crease accents with hinge angle so they don't vanish abruptly at rest;
+  both removed visible pops in a folding kite.
 - A surface rising from the ground casts its shadow on the ground before any of the surface is
   drawn. Laid between its grounded and raised parts, the shadow printed a 1 px crease where the
   sheet left the bath; lay it again only where an overhang covers a part still lying down, clipped
@@ -54,6 +62,11 @@ shell, attached details, foreground occluders.
   screened bitmap to fake a dolly. Cache static coverage per fixed camera and redraw only
   changing geometry. Arbitrary camera motion may exceed the frame budget: measure on the real
   scene before committing a sequence to it.
+- Interpolate a zoom in `1/z` or `log z`, not `z`, or a big pull-out rushes at one end.
+- Stroke weight under a zoom is a choice. Scaling it with the full zoom gives a 3× close-up a 3×
+  nib, heavier than the mark would be redrawn at that size; holding it in pixels makes the
+  close-up spindly. `w * zoom ** 0.35` (about 1.5× at 3×) is an unmeasured starting point: judge
+  it on 1:1 crops at the closest and widest framing. Screen pitch never scales.
 
 ## Speed units and an owner
 
@@ -80,6 +93,10 @@ drawPenAt(point); // same sample, so the tool cannot run ahead of the mark
 - Inspect an arrival at 0.5×, 1× and 2× before claiming robust retiming. Retiming changes
   duration, cut times and action clock together. When the action no longer fits, lengthen the
   shot; never truncate it at the old end time.
+- A drawn-on mark matches its static drawing only once progress is exactly 1. `travel` clamps and
+  `prefix(route.length)` returns the whole route; a hand-rolled reveal (a glyph write-on, a custom
+  arc-length walk) must clamp the same way, or it stops at 0.999 with the last sliver undrawn. A
+  cue ending at the film's duration never completes: the last frame is `duration - 1/fps`.
 - `hermite(a,b,va,vb,seconds,u)` uses endpoint velocities in units/second; share them at a joint
   for a continuous handoff.
 - `ballistic(origin,velocity,acceleration,age)` evaluates particles analytically; seed birth

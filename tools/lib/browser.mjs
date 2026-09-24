@@ -32,6 +32,12 @@ export async function openFilm(browser, filmPath, { size = 1080, css = 720, quer
   const errors = [];
   page.on('pageerror', e => errors.push(String(e)));
   page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+  // A deliverable makes no network calls. Abort instead of allowing, so every tool renders
+  // what an offline viewer sees and reports the request as a page error.
+  await page.route(u => !/^(file|data|blob|about):/.test(u.href), r => {
+    errors.push(`network request blocked: ${r.request().url()}`);
+    return r.abort();
+  });
 
   const href = url.pathToFileURL(path.resolve(filmPath)).href + (query ? '?' + query : '');
   await page.goto(href, { waitUntil: 'load' });

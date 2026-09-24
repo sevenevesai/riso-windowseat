@@ -16,12 +16,12 @@ broad aesthetic request is permission to art-direct, not a missing brief.
 |---|---|
 | Detailed, beautiful assets | The object's distinctive proportions, construction and material; put detail where it explains them. |
 | Serious, cinematic | Viewpoint, scale, light, consequence. No default cute proportions or decorative captions. |
-| Snappy, good pace | Clear actions, short preparation, readable arrivals; shot length follows information. |
+| Snappy, good pace | Clear actions, short preparation, readable arrivals; shot length follows information. Cut in during an action and out on its last beat: a tail hold (chewing, settling) reads slow even when the action is fast. |
 | Smooth | Direction, eye destination and velocity through handoffs and wraps. A cut can be smooth. |
 | Magical, explosive | A transformation rule staged as preparation, release, aftermath. |
 | Original | New viewpoint, action and progression for the subject; new palette or nouns isn't enough. |
 | Like an earlier film | Which to keep: print, rhythm, structure or one effect. Don't silently inherit all four. |
-| A remake of a known video or meme | Measure the actual file: cut times, shot list, what each shot does. Keep its identity (structure, cut rhythm, action) and drop its defects (low resolution, morphing, watermarks) unless asked for. |
+| A remake of a known video or meme | Measure the actual file: cut times, shot list, what each shot does. Keep its identity (structure, cut rhythm, action) and drop its defects (low resolution, morphing, watermarks) unless asked for. Its cut length is a ceiling, not a slot: trim each shot to its action with a per-shot in/out/speed table, holding it fixed once pacing is approved. |
 | Devouring, greedy, frantic | Overlapping actions: the next starts before the last consequence finishes, and consequences accumulate (the plate empties, sauce stays on the face). |
 
 Lessons from real requests (the current request always overrides; assistant praise and old
@@ -33,6 +33,10 @@ completion reports are not evidence of satisfaction):
 - Honour per-request exclusions of earlier outputs as references.
 - Liked pictures were still rejected for white-clear flashes at transitions and a strip snapping
   on its loop: inspect handoffs and loop boundaries, not just attractive frames.
+- Long films the user liked were still corrected at playback speed: glints flashing, a rope tail
+  glitching, a catch moving choppily, a transition sound jarring, a final passage dropping in pace
+  and richness, shots opening on idle holds. Measure those symptoms
+  ([quality-bar.md](quality-bar.md#defects-seen-at-playback-speed)) and judge pace from an MP4.
 - Automatic pink/blue collisions and two-dot endings were rejected after several films: reuse the
   craft, not the Resonance story. A concept-specific motion doesn't carry to later films.
 - A meme remake was corrected twice: away from imitating the source's poor quality, then back
@@ -63,6 +67,10 @@ inaccessible images and imagined mechanisms as such.
 - Separate subject facts, composition/lighting and print finish. A riso poster can't show how a
   machine works. Generated imagery may suggest composition when requested but can't establish
   anatomy or historical accuracy.
+- Wikimedia Commons serves photos by script: the API's `generator=search` with `prop=imageinfo`
+  and `iiurlwidth` returns thumbnail URLs. Send a User-Agent; on HTTP 429 wait ~20 s and retry.
+  Keep downloads in `out/`, never in the deliverable, and open every result: a name search also
+  returns other people and things with that name.
 
 ## Prove the hardest picture first
 
@@ -82,41 +90,15 @@ final-ink views available. Order:
 5. Plate craft. Thumbnail: subject and hierarchy. 1:1: contours, tangencies, screen, registration.
    Texture is not evidence steps 1–4 worked.
 
-People and animals: gesture and weight-bearing contacts before contour; place shoulders, pelvis,
-joints and attachments; check limb proportions in the chosen view. Hands reach and grasp; seated
-figures meet seat and controls. A generic head-and-limbs stamp repeated at a desk doesn't improve
-when shrunk. If an essential figure fails, study and redraw it or pick a truthful readable
-viewpoint; don't just hide it.
+People and animals: gesture and weight-bearing contacts before contour, then likeness, hands,
+arms and contact as in [characters.md](characters.md). If an essential figure fails, study and
+redraw it or pick a truthful readable viewpoint; don't just hide it.
 
-- A real person's likeness comes from measured proportions, not generic features plus texture.
-  Lay a head-unit grid on a frontal reference photo (crown −0.5, chin +0.5), read the landmarks
-  (hairline, brows, eye spacing, nose width and base, mouth, chin, ear span), author features in
-  those units on a surface-wrapped head so a turn foreshortens them together, and compare a
-  debug render beside the photo at the same pose and size. Each pass names a measured
-  difference ("nose too narrow, brows too high"). Study the photo; don't trace or embed it.
-  Proportions alone read as a mask. Add form as a relief heightfield (brow shelf, sockets,
-  cheekbones, nose, muzzle, chin) lit from the mesh (lambert wrapped past the terminator, a cast
-  shadow marched toward the light, concavity) rather than painted plane blobs; keep the relief
-  smooth at the midline or gloss prints a seam down the forehead. Build the silhouette from
-  front-facing quads so a turned contour breaks at nose and lips, and compare at the film's
-  actual yaws and pitches against ¾ and down-angle photos, not only the frontal one.
-- Hands are posable 3D joint chains, one pose per grip, never one 2D stamp: a fork grip reused
-  for pinching and holding read wrong everywhere. Size them at about 0.8 head heights. Solve each
-  grip so contacts meet, anchor on the contact point, and depth-sort phalanges with the held
-  object. Compare one large hand beside photographs of the same grip before placing it in shots.
-  Capsule fingers read as sausages: joints wider than shafts, a palmar pad, nails on the distal
-  half; curled fingers separate only with a knuckle, a crease and a small cast shadow per bend.
-- A grip is held by working fingers: blend toward an in-grip extreme over time (the pinch parts
-  to take and release, the fist squeezes and the held thing deforms). To wrap a hand round an
-  object, anchor on a point inside the curl and turn the hand so that line lies along the object.
-  A debug-sheet match does not guarantee the shot: sweep roll and pitch in the shot itself (3×3
-  at 1:1), and tint an unidentifiable part flat ink while choosing.
-- Solve arms in 3D with true bones (upper arm 1.5, forearm 1.15 head heights, about 0.2 wide at
-  the biceps). A hand at the face sits under a head-height in front of the shoulder; pushing the
-  wrist further out aims the upper arm at the lens and balloons the sleeve. The shoulder joint sits
-  a deltoid's radius below the shoulder line, or sleeves read as pads.
-- A close-up needs the close camera's strong perspective; the medium shot's weak perspective
-  flattens a face.
+A subject that recurs at several sizes or poses (a bird of the flock, a kite, a character) goes on
+one sheet, printed on the real plates at its smallest and largest screen size and in each pose,
+before any shot. At 4.6 px pitch small sizes fail first (drops under ~8 px read as dirt). In a
+code-drawn explainer, a gallery of characters and props before any scene caught gray paper and
+thin lines while each fix still cost one frame instead of fifty.
 
 Objects: attach every detail to a host surface. Equal keys on a sloping keyboard foreshorten;
 circles on a turned panel become ellipses. Use coherent perspective or a coherent
@@ -173,7 +155,8 @@ Lasseter's 1987 animation paper couldn't be retrieved; no rule here rests on it.
 ## Known gaps
 
 The geometry/timing kit gives camera, mapped surfaces, near clipping, distance paths, Hermite
-handoffs and analytic trajectories, not anatomy, visibility, physics or judgment. One
-constructed-object study doesn't demonstrate better organic anatomy, character acting,
-compelling minute-long pacing or consistently better taste across fresh sessions; those remain
-to be evaluated in production against the review cases.
+handoffs and analytic trajectories, not anatomy, visibility, physics or judgment. Minute-long
+pacing now has production evidence: Window Seat, Roost, Held and Nonpareil (70–78 s) were built
+with this kit and revised after playback review. Figure craft rests on one remake
+([characters.md](characters.md)); character acting and consistent taste across fresh sessions
+remain unevaluated.
