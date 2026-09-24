@@ -71,6 +71,10 @@ inaccessible images and imagined mechanisms as such.
   and `iiurlwidth` returns thumbnail URLs. Send a User-Agent; on HTTP 429 wait ~20 s and retry.
   Keep downloads in `out/`, never in the deliverable, and open every result: a name search also
   returns other people and things with that name.
+- A flat specimen photograph can be measured, not only viewed. Eclosion's wing outlines, cells
+  and spots came from colour thresholds on a Commons specimen photo, smoothed, with hidden edges
+  drawn by hand (`films/eclosion/measure-wings.py`). Such geometry is data derived from that
+  photo: pin the source by hash, record its license and credit it beside the work.
 
 ## Prove the hardest picture first
 

@@ -76,6 +76,22 @@ compositor is window-seat's; the camera stays overhead and reprojects vectors.
 | Lagging follow camera | `camTail`, `follow`, `sheetMid` | The camera tracks the carried sheet's mean x averaged over the last 0.6 s: a late, smooth follow that stays pure in `t`. |
 | Water on a print | `drawRinse`, `frontV`, `wetRim`, `drawPool`, `RIVULETS` | A wavy front with a glossy band, flow streaks and the window reflected where it is wet; rivulets start on beats and are also score notes. |
 
+## films/eclosion — one macro take, 36 s
+
+A monarch leaves its chrysalis, pumps its crumpled wings full, shows them once and flies; the
+camera returns to the empty case. Window-seat's compositor; the butterfly is a planar 3D model.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| Planar 3D wings | `WING`, `wingFrame`, `bodyR`, `drawWingPattern` | Pattern in specimen units under one affine per wing (sweep, fold, body yaw/pitch/roll, orthographic camera); the wing normal picks the dorsal or ventral pattern. |
+| Depth layering | `drawButterfly`, `wingDepth`, `axisFront`, `halfPlane` | Legs and far wings first; after each body part, wing surface nearer than it is redrawn through a screen half-plane clip. Holds from the side, from behind and in flight. |
+| Crumple that unfolds | `PLEAT`, `deformer`, `drawCreases`, `expansion` | In-plane pleat displacement before the affine; creases print dark with paper ridges and fade as the wings pump full. |
+| Layer through a ramp mask | `layer` | Draws a modelled surface into sprite plates and lays it over the frame as old·(1 − m) + new·m: the jade shell clearing bottom-up. |
+| Motion blur for one subject | `blurred`, `TG`, `SIL` | Shutter samples drawn into sprite plates, averaged through the averaged silhouette. |
+| Pendulum driven by events | `SWING`, `caseSwing` | Damped pendulum integrated once at load (240 Hz) and interpolated: shivers, the body's tug, a loaded rest, the push-off kick. |
+| Still inside a container | `drawArt` (`inside`), `caseOutline` | The emerging body is clipped to below the split line and drawn under the case, so nothing pokes through the shell. |
+| Measured specimen geometry | `measure-wings.py` | Rebuilds `WING` from a hash-pinned Commons photo; credit and license in `FILM.md`. |
+
 ## films/lumen — resonance form, 28 s
 
 A centre dot opens eight worlds through irises and sweeps, recollects them through one

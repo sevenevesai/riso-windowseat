@@ -8,10 +8,11 @@ description: Scores a riso film or reworks its score. Designs the cue list from 
 Produce the `renderAudio()` half of `films/<name>/index.html`: a deterministic stereo score exactly
 the film's duration at 48 kHz, scaled once to −16 LUFS under a −1 dBTP ceiling, with a measured
 sheet and a full muxed MP4 reviewed with the picture. Commands run in `tools/`.
-[examples.md](examples.md) shows six finished scores: sampled piano (`films/window-seat`),
+[examples.md](examples.md) shows seven finished scores: sampled piano (`films/window-seat`),
 recorded strings timed from the picture (`films/roost`), found CC0 instruments (`films/held`),
-sampled handpan with edge-timed swells (`films/nonpareil`), procedural (`films/lumen`) and two
-switchable candidates (`films/emergence`).
+sampled handpan with edge-timed swells (`films/nonpareil`), a CC0 trio sharing the picture's
+clock (`films/eclosion`), procedural (`films/lumen`) and two switchable candidates
+(`films/emergence`).
 
 ## Before writing a note
 
@@ -91,8 +92,11 @@ sounds on it, deliberate silences, the measured line (`I −16.0 LUFS, LRA 3.7 L
 clipped 0, firefox byte-identical`), the marks table, and what was heard or that nothing was.
 Recorded samples need a license that permits redistribution, pinned sources and attribution
 beside the film (see `films/window-seat/AUDIO-SOURCES.md`, CC BY, and
-`films/roost/AUDIO-SOURCES.md`, CC0). Libraries disagree on octave numbering (VSCO 2's cello and
-bass name middle C C3, its violin C4), so check each root against the recorded partials.
+`films/roost/AUDIO-SOURCES.md`, CC0). Libraries disagree on octave numbering (VSCO 2's cello,
+bass, clarinet and horn and VCSL's vibraphone name middle C C3; VSCO 2's violin C4), so check each
+root against the recorded partials. A soft low note can lack its fundamental (VSCO horn C1: 0.00
+at f, 0.71 at 4f), and a partial scorer then takes the second harmonic: pin such roots from the
+harmonic spacing and measure only tuning (`films/eclosion/build-sample-bank.py`).
 
 ## Player audio and rework
 

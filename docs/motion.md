@@ -166,6 +166,10 @@ frame differences and the pop scan find them
   0.45 s and its grip roll aliased between extremes on alternate frames, read as a glitching wrist.
 - Interpolate angles the short way; a key passing through 0 instead of π flipped a wrist in one
   frame.
+- A cycle switched on at full speed pops: Eclosion's wings went from a held pose to a 3 Hz beat
+  in one frame and the pop scan flagged the push-off. Start from an anticipation pose and ease
+  the phase in, θ = φ + 2πf·(u − τ(1 − e^(−u/τ))), so the angular speed rises from zero over a few
+  τ (`flightPose`).
 - Offsets between repeated periodic motions must not be whole periods: two juggled cards offset by
   one full throw shared one arc and only one showed. Use period ÷ n, opposite directions, or an
   irrational step for a crowd.

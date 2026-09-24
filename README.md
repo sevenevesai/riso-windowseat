@@ -3,8 +3,8 @@
 Procedural risograph films and prints, each a single `index.html` of Canvas 2D and Web Audio:
 no libraries, fonts, images or network calls. The repo began as the release of **Window Seat**.
 Making it, and the two shorts before it, produced a reusable kit of Claude Code skills, craft
-docs and a render harness. Roost, Held and Nonpareil were made with it next, and two print
-series, Cabinet and Sceneries.
+docs and a render harness. Roost, Held, Nonpareil and Eclosion were made with it next, and two
+print series, Cabinet and Sceneries.
 
 ![Window Seat, dawn from the viaduct](films/window-seat/poster.png)
 
@@ -20,6 +20,7 @@ source instead, open any `index.html` in a browser and press play.
 | [Roost](films/roost/) | 70 s | One take of a starling murmuration from sunset to roost, scored for strings |
 | [Held](films/held/) | 70 s | A kite that flies only while something holds its line, scored for found instruments |
 | [Nonpareil](films/nonpareil/) | 70 s | Paper marbling from the first drop to the one print it makes, scored for handpan |
+| [Eclosion](films/eclosion/) | 36 s | A monarch leaves its chrysalis, pumps its wings full and flies, in one take, scored for vibraphone, clarinet and horn |
 | [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in call-and-response form |
 | [Emergence](films/emergence/) | 28 s | Lumen's sibling: how machines learned to listen, as nine worlds |
 
@@ -64,6 +65,16 @@ dropped and pulled into the middle. A sheet unrolls across the bath, is peeled b
 lens like a turning page, and lands face up and mirrored beside the emptied tray. The marbling
 is closed-form geometry, so every frame is exact. The drops are the handpan's notes, over a
 slow cello and contrabass line.
+
+### Eclosion
+
+One monarch's first morning, in one continuous macro take. A jade chrysalis clears and splits;
+the butterfly drops out, hangs from the empty shell and pumps its crumpled wings full in six
+slow pulses while its swollen abdomen shrinks. It turns, opens its wings twice and flies, and
+the camera returns to the empty case, framed as the chrysalis was in the first second. The
+wings are a planar 3D model whose pattern was measured from a specimen photograph, layered by
+depth so the body reads right from the side, from behind and in flight. A slow trio in F for
+vibraphone, clarinet and horn shares the picture's clock.
 
 ## Prints
 
@@ -114,7 +125,7 @@ breaks determinism.
 
 | Path | Contents |
 |---|---|
-| `films/` | The six films, each with its `FILM.md`; Window Seat, Roost, Held and Nonpareil include sample credits and bank rebuild scripts |
+| `films/` | The seven films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
 | `prints/` | Three print series: Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
 | `docs/` | The craft: brief, visual development, drawing, figures, scene space, motion, live plates, sound, quality bar |
 | `studies/` | Interactive A/B studies of each technique, and the sound kit |
@@ -130,4 +141,8 @@ Roost are VSCO 2 Community Edition by Versilian Studios under CC0 1.0; see
 [`AUDIO-SOURCES.md`](films/roost/AUDIO-SOURCES.md). Held's instruments are from Versilian's VCSL
 and VSCO 2, also CC0 1.0; see [`AUDIO-SOURCES.md`](films/held/AUDIO-SOURCES.md). Nonpareil's
 handpan is GAMEDRIX974's HandPan pack on Freesound and its cello and contrabass are from VSCO 2,
-all CC0 1.0; see [`AUDIO-SOURCES.md`](films/nonpareil/AUDIO-SOURCES.md).
+all CC0 1.0; see [`AUDIO-SOURCES.md`](films/nonpareil/AUDIO-SOURCES.md). Eclosion's vibraphone
+(VCSL), clarinet and horn (VSCO 2) are CC0 1.0; see
+[`AUDIO-SOURCES.md`](films/eclosion/AUDIO-SOURCES.md). Its wing geometry is measured from
+"Danaus plexippus MHNT dos.jpg" by Didier Descouens (Wikimedia Commons, CC BY-SA 4.0); see
+[`FILM.md`](films/eclosion/FILM.md).

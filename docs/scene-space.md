@@ -41,6 +41,16 @@ shell, attached details, foreground occluders.
   it (the lamp draws behind the plotter; the desk top occludes the leg tops). Sort only suitable
   disjoint surfaces or use explicit order; split intersecting geometry at the overlap. There is
   no depth buffer.
+- A subject that turns to show its other side needs layering by depth, not fixed rules.
+  Eclosion drew legs over the body, the head over the thorax and the body over the wings: right
+  in profile, but once the butterfly turned its back to the camera the body read as facing us
+  while the wings showed their backs. The user caught it at the flight, where the pitch also
+  tipped the head toward the lens. Draw what lies beyond first (legs, antennae, far wings), then
+  each body part, then redraw inside that part's silhouette only the wing surface nearer than the
+  part's near surface. A plane's depth is affine in screen space and a cylinder's near surface
+  nearly so, so "nearer" is one half-plane clip (`drawButterfly`, `wingDepth`, `axisFront`,
+  `halfPlane`). A surface that wraps a part (closed wings round the abdomen) is biased toward its
+  own side by the part's radius.
 - Use the same projected shape for the subject and all its plate knockouts.
 - A contact shadow lies on the receiving plane; a cast shadow follows a chosen light direction.
   Don't offset a generic ellipse under everything. Highlights, hatching and seam spacing turn

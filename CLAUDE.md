@@ -47,7 +47,7 @@ Firefox is the primary engine. `out/` is disposable and git-ignored.
 | Path | Holds |
 |---|---|
 | `films/window-seat/` | Showcase: sampled piano, piano-bank rebuild. |
-| `films/roost/`, `films/held/`, `films/nonpareil/` | 70 s films: murmuration, kite on a rope, marbling; sampled scores. |
+| `films/roost/`, `held/`, `nonpareil/`, `eclosion/` | Sampled-score films: starlings, kite, marbling, monarch eclosion. |
 | `films/lumen/`, `films/emergence/` | 28 s shorts in the Resonance form. |
 | `prints/` | Cabinet, Sceneries and Workings; workings donates the print kit. |
 | `docs/` | The brief and craft docs; `brief.md` tables which to read when. |

@@ -71,6 +71,11 @@ peak.
 - When the event is diffuse (a flock arriving, leaving frame), measure it from the picture's
   projection rather than choosing a time: Roost's `FLIGHT_SCORE` takes arrival and return from
   the visible fraction of projected birds and tempo from their density and speed.
+- `audio.mjs` takes the steepest 10 ms rise within ±300 ms of a mark as its onset. Under a held
+  bed it can lock onto beating: Eclosion's split read −55 to −105 ms wherever the note was
+  placed, while the WAV's 10 ms RMS showed it rising where it was put. Before moving a note, print
+  that envelope around the mark. A soft-mallet vibraphone builds over about 50 ms, so place it on
+  the mark, not after it.
 ## Material is the timbre
 
 A struck sound is exciter → resonator → body. Exciter speed is hardness: 0.5 ms of noise is a

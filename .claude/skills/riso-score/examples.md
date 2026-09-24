@@ -78,6 +78,18 @@ contrabass. Nearly every note is a picture event: a drop, a pin crossing, an edg
 | Cue from picture geometry | `flowerFlip`, `flipBeat` | The mirrored motif lands when the sheet sample under the flower turns face up, snapped to the half-beat grid. |
 | Bass line as data | `bassLine`, `scoreBass`, `bowSpan` | Roots change on picture events; a note longer than a recording is overlapping bows, so moving the next entry re-cuts the held note before it. |
 
+## films/eclosion — CC0 trio, 36 s
+
+Vibraphone (VCSL), clarinet and French horn (VSCO 2) in F, never more than three voices; every
+cue reads the picture's `T`.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| One clock for picture and score | `T`, `T.glints`, `SCORE_MARKS` | The motif's three notes are the three gold dots catching light; pumps, display and push-off are `T` times too. |
+| Struck and held voices | `vib`, `roll`, `sus`, `clar`, `horn`, `hornSpan` | One sampler for strikes (ring or damp), one enveloped sustain under a low-pass; a horn note longer than a take overlaps takes. |
+| Pan with the subject | `butterflyX`, `panX` | Pans read the butterfly's projected x from `poseAt`, so the flight arpeggio follows it out of frame. |
+| Pinned roots | `build-sample-bank.py` (`measure_tuning`) | Soft low horn notes lack a fundamental: roots pinned from the naming, tuning read from the strongest harmonic. |
+
 ## films/lumen — procedural score, 28 s
 
 A self-contained score that does not use the shared kit: its voices are nested inside
