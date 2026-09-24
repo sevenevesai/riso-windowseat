@@ -27,7 +27,6 @@ source instead, open any `index.html` in a browser and press play.
 
 ### Window Seat
 
-<a href="films/window-seat/preview.webp" title="Open the larger preview"><img src="films/window-seat/preview-thumb.webp" width="180" align="right" alt="Window Seat: the red bridge, the overtaking train, fireworks over the lake, the rainbow halt"></a>
 A night train journey seen through one fixed window with a glass of water on the sill. Every
 pixel and every sound except the piano is procedural.
 
@@ -67,6 +66,7 @@ chimes, strings and flute, with every cue read from the picture's events.
 
 ### Nonpareil
 
+<a href="films/nonpareil/preview.webp" title="Open the larger preview"><img src="films/nonpareil/preview-thumb.webp" width="180" align="right" alt="Nonpareil: drops landing, the comb crossing, a bullseye pulled into a flower, the sheet peeling back"></a>
 Paper marbling seen straight down into the bath. Drops of colour land on the beat and push each
 other outward; a rake and a fine comb drag them into the nonpareil pattern, and a flower is
 dropped and pulled into the middle. A sheet unrolls across the bath, is peeled back toward the
@@ -74,8 +74,11 @@ lens like a turning page, and lands face up and mirrored beside the emptied tray
 is closed-form geometry, so every frame is exact. The drops are the handpan's notes, over a
 slow cello and contrabass line.
 
+<br clear="right">
+
 ### Eclosion
 
+<a href="films/eclosion/preview.webp" title="Open the larger preview"><img src="films/eclosion/preview-thumb.webp" width="180" align="right" alt="Eclosion: the case splitting, the butterfly swinging out, the full display, the flight"></a>
 One monarch's first morning, in one continuous macro take. A jade chrysalis clears and splits;
 the butterfly drops out, hangs from the empty shell and pumps its crumpled wings full in six
 slow pulses while its swollen abdomen shrinks. It turns, opens its wings twice and flies, and
@@ -84,8 +87,11 @@ wings are a planar 3D model whose pattern was measured from a specimen photograp
 depth so the body reads right from the side, from behind and in flight. A slow trio in F for
 vibraphone, clarinet and horn shares the picture's clock.
 
+<br clear="right">
+
 ### Passenger
 
+<a href="films/passenger/preview.webp" title="Open the larger preview"><img src="films/passenger/preview-thumb.webp" width="180" align="right" alt="Passenger: the drawing in the fog, sunrise and ink, lift-off, the wings opening on the glass"></a>
 A child of this repo and [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle):
 Window Seat's window and glass of water, and anidoodle's drawing that makes itself and then comes
 alive. Before dawn a butterfly draws itself in the fog on a train window, stroke by stroke in the
@@ -94,6 +100,8 @@ fills its wings. The sunrise warms it off the glass and the camera pulls back fr
 seat. It lands on the rim of the glass of water and drinks, and the butterfly-shaped hole it left
 stays in the fog. The score is procedural, from the shared kit: every mark of the drawing is a
 note, and the opening motif is answered as the wings open.
+
+<br clear="right">
 
 ## Prints
 
