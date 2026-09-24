@@ -52,6 +52,8 @@ is the halftone: where the sheet turns edge-on, the birds pile into dark printed
 falcon stoops through it and the flock pours into the reeds at nightfall. The string score is
 timed from the picture.
 
+<br clear="right">
+
 ### Held
 
 <a href="films/held/preview.webp" title="Open the larger preview"><img src="films/held/preview-thumb.webp" width="180" align="right" alt="Held: the kite on the hill, the line parting, the church vane, the sloop's catch"></a>
@@ -60,6 +62,8 @@ across a harbour town, is snagged for a moment by a church weathervane, and over
 line catches on a sloop's forestay, so the kite climbs again, held by the boat sailing into
 dusk. Its tail and loose line are simulated ropes. The score uses CC0 mbira, harp, glockenspiel,
 chimes, strings and flute, with every cue read from the picture's events.
+
+<br clear="right">
 
 ### Nonpareil
 
