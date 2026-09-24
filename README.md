@@ -27,6 +27,7 @@ source instead, open any `index.html` in a browser and press play.
 
 ### Window Seat
 
+<a href="films/window-seat/preview.webp" title="Open the larger preview"><img src="films/window-seat/preview-thumb.webp" width="180" align="right" alt="Window Seat: the red bridge, the overtaking train, fireworks over the lake, the rainbow halt"></a>
 A night train journey seen through one fixed window with a glass of water on the sill. Every
 pixel and every sound except the piano is procedural.
 
@@ -45,6 +46,7 @@ settle.
 
 ### Roost
 
+<a href="films/roost/preview.webp" title="Open the larger preview"><img src="films/roost/preview-thumb.webp" width="180" align="right" alt="Roost: the flock over the sun, the falcon strike, starlings pouring past, the roost"></a>
 A murmuration over a marsh in one fixed view. Each starling is a 2–3 px ink dot, so the flock
 is the halftone: where the sheet turns edge-on, the birds pile into dark printed ribbons. A
 falcon stoops through it and the flock pours into the reeds at nightfall. The string score is
@@ -52,6 +54,7 @@ timed from the picture.
 
 ### Held
 
+<a href="films/held/preview.webp" title="Open the larger preview"><img src="films/held/preview-thumb.webp" width="180" align="right" alt="Held: the kite on the hill, the line parting, the church vane, the sloop's catch"></a>
 A paper kite's line frays and parts at a hillside stake. Loose, it can only tumble; it falls
 across a harbour town, is snagged for a moment by a church weathervane, and over the water its
 line catches on a sloop's forestay, so the kite climbs again, held by the boat sailing into
