@@ -3,8 +3,8 @@
 Procedural risograph films and prints, each a single `index.html` of Canvas 2D and Web Audio:
 no libraries, fonts, images or network calls. The repo began as the release of **Window Seat**.
 Making it, and the two shorts before it, produced a reusable kit of Claude Code skills, craft
-docs and a render harness. Roost, Held, Nonpareil and Eclosion were made with it next, and two
-print series, Cabinet and Sceneries.
+docs and a render harness. Roost, Held, Nonpareil, Eclosion and Passenger were made with it next,
+and two print series, Cabinet and Sceneries.
 
 ![Window Seat, dawn from the viaduct](films/window-seat/poster.png)
 
@@ -21,6 +21,7 @@ source instead, open any `index.html` in a browser and press play.
 | [Held](films/held/) | 70 s | A kite that flies only while something holds its line, scored for found instruments |
 | [Nonpareil](films/nonpareil/) | 70 s | Paper marbling from the first drop to the one print it makes, scored for handpan |
 | [Eclosion](films/eclosion/) | 36 s | A monarch leaves its chrysalis, pumps its wings full and flies, in one take, scored for vibraphone, clarinet and horn |
+| [Passenger](films/passenger/) | 36 s | A butterfly draws itself in the fog on a train window and comes alive at sunrise; a child of Window Seat and [anidoodle](https://github.com/alexgreensh/anidoodle), scored procedurally |
 | [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in call-and-response form |
 | [Emergence](films/emergence/) | 28 s | Lumen's sibling: how machines learned to listen, as nine worlds |
 
@@ -44,21 +45,28 @@ settle.
 
 ### Roost
 
+<a href="films/roost/preview.webp" title="Open the larger preview"><img src="films/roost/preview-thumb.webp" width="180" align="right" alt="Roost: the flock over the sun, the falcon strike, starlings pouring past, the roost"></a>
 A murmuration over a marsh in one fixed view. Each starling is a 2–3 px ink dot, so the flock
 is the halftone: where the sheet turns edge-on, the birds pile into dark printed ribbons. A
 falcon stoops through it and the flock pours into the reeds at nightfall. The string score is
 timed from the picture.
 
+<br clear="right">
+
 ### Held
 
+<a href="films/held/preview.webp" title="Open the larger preview"><img src="films/held/preview-thumb.webp" width="180" align="right" alt="Held: the kite on the hill, the line parting, the church vane, the sloop's catch"></a>
 A paper kite's line frays and parts at a hillside stake. Loose, it can only tumble; it falls
 across a harbour town, is snagged for a moment by a church weathervane, and over the water its
 line catches on a sloop's forestay, so the kite climbs again, held by the boat sailing into
 dusk. Its tail and loose line are simulated ropes. The score uses CC0 mbira, harp, glockenspiel,
 chimes, strings and flute, with every cue read from the picture's events.
 
+<br clear="right">
+
 ### Nonpareil
 
+<a href="films/nonpareil/preview.webp" title="Open the larger preview"><img src="films/nonpareil/preview-thumb.webp" width="180" align="right" alt="Nonpareil: drops landing, the comb crossing, a bullseye pulled into a flower, the sheet peeling back"></a>
 Paper marbling seen straight down into the bath. Drops of colour land on the beat and push each
 other outward; a rake and a fine comb drag them into the nonpareil pattern, and a flower is
 dropped and pulled into the middle. A sheet unrolls across the bath, is peeled back toward the
@@ -66,8 +74,11 @@ lens like a turning page, and lands face up and mirrored beside the emptied tray
 is closed-form geometry, so every frame is exact. The drops are the handpan's notes, over a
 slow cello and contrabass line.
 
+<br clear="right">
+
 ### Eclosion
 
+<a href="films/eclosion/preview.webp" title="Open the larger preview"><img src="films/eclosion/preview-thumb.webp" width="180" align="right" alt="Eclosion: the case splitting, the butterfly swinging out, the full display, the flight"></a>
 One monarch's first morning, in one continuous macro take. A jade chrysalis clears and splits;
 the butterfly drops out, hangs from the empty shell and pumps its crumpled wings full in six
 slow pulses while its swollen abdomen shrinks. It turns, opens its wings twice and flies, and
@@ -75,6 +86,22 @@ the camera returns to the empty case, framed as the chrysalis was in the first s
 wings are a planar 3D model whose pattern was measured from a specimen photograph, layered by
 depth so the body reads right from the side, from behind and in flight. A slow trio in F for
 vibraphone, clarinet and horn shares the picture's clock.
+
+<br clear="right">
+
+### Passenger
+
+<a href="films/passenger/preview.webp" title="Open the larger preview"><img src="films/passenger/preview-thumb.webp" width="180" align="right" alt="Passenger: the drawing in the fog, sunrise and ink, lift-off, the wings opening on the glass"></a>
+A child of this repo and [alexgreensh/anidoodle](https://github.com/alexgreensh/anidoodle):
+Window Seat's window and glass of water, and anidoodle's drawing that makes itself and then comes
+alive. Before dawn a butterfly draws itself in the fog on a train window, stroke by stroke in the
+order a finger would. Its clear lines are windows, so lamps slide through the drawing and the dawn
+fills its wings. The sunrise warms it off the glass and the camera pulls back from the pane to the
+seat. It lands on the rim of the glass of water and drinks, and the butterfly-shaped hole it left
+stays in the fog. The score is procedural, from the shared kit: every mark of the drawing is a
+note, and the opening motif is answered as the wings open.
+
+<br clear="right">
 
 ## Prints
 
@@ -125,7 +152,7 @@ breaks determinism.
 
 | Path | Contents |
 |---|---|
-| `films/` | The seven films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
+| `films/` | The eight films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
 | `prints/` | Three print series: Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
 | `docs/` | The craft: brief, visual development, drawing, figures, scene space, motion, live plates, sound, quality bar |
 | `studies/` | Interactive A/B studies of each technique, and the sound kit |

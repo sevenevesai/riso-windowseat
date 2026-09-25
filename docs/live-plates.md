@@ -29,6 +29,12 @@ swim. Four plates cost ~110 ms/frame at 1080 in Firefox: export is fine, playbac
 - Drops on glass: snapshot the plates, draw each drop's region inverted and minified in its clip.
   Drive runs by distance travelled, so drops stream at speed and fall straight when stopped. At
   4.6 px pitch, drops under ~8 px radius read as dirt.
+- Fog on glass ([Passenger](../films/passenger/FILM.md), `fogLayer`): fog scatters, so where it
+  lies each plate becomes a heavily blurred copy of the outside mixed toward a near-paper tint.
+  Halve the plate step by step to 34², mix there, add lamp and sun glows at 135², upsample, and lay it through a density mask as old·(1 − m) + F·m. Cut the drawn clear
+  marks from the mask at full resolution. Restore `fillStyle` on shared scratch contexts: a glow's
+  gradient left on one turned the next plate's full-canvas `fillRect` into a partial clear, and
+  the fog vanished from the frame the glow began.
 - Fireworks: each spark analytic from burst age with drag and gravity, into a mask that knocks out
   the night before inking. Star trails are arcs of length ω·(t − t0).
 - Sun glitter on water ([Roost](../films/roost/FILM.md)): glints switching on and off at
