@@ -102,6 +102,19 @@ picture's train and water as foley.
 | Bars that land on an event | `flightAndLanding` (`bar`, `b0`) | Four 2 s bars from lift-off put the fifth downbeat on the landing. |
 | Dry room with the kit's impulse | `buildScore` (`room.wet` .032) | The kit impulse's hot wet level cut, as Held did; see `docs/sound.md`. |
 
+## films/standby — procedural from the kit, 52 s
+
+D major with a lydian II at 96 BPM from the kit alone: FM e-piano and FM bell, pads, music box,
+synthesised crickets and the set's own hum and whine.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| The subject's two rhythms as two voices | `bounceVoices`, `XWALLS`, `YWALLS`, `PROG`, `YMEL` | x walls change the chord on a low voice, y walls carry the melody; a near miss is the next chord's note arriving early, so the flam tightens as the picture's does. |
+| Attacks that fuse without stacking | `bounceVoices` (the hit) | At the corner the bass lands 20 ms after the melody: one event to the ear, and the true peak no longer sets the reel's level. |
+| A sound that stops at the turn | `roomBed`, `switchOff` | Mains hum and a 15.734 kHz line whine run under everything and cut with the picture, then a relay click, a falling thump and static crackle. |
+| Insects from a buffer | `crickets` | Per-sample chirp trains with seeded rhythm, pitch and pan, low-passed as if through glass. |
+| A pass-by | `carPass` | Pink noise through a band that sweeps up and down, a low engine whose pitch falls, panned with the street. |
+
 ## films/lumen — procedural score, 28 s
 
 A self-contained score that does not use the shared kit: its voices are nested inside
@@ -137,7 +150,7 @@ time. Nothing is scheduled live, so the player cannot drift from `renderAudio()`
 | window-seat | `ensureScore` | `syncAudio` | `play`, `pause` (and `seek` via `pause`), the Sound button |
 | roost | `ensureScore` | `syncAudio` | Same as window-seat; its Record control also records the score while the monitor is muted |
 | lumen | `buildScore` (`scorePromise`) | `startSound`, `stopSound` | `setPlaying` (frame loop `tick` only moves the picture) |
-| passenger | `ensureScore` | `syncAudio` | `start`, `pause` (and `seek` via `pause`), the Audio button |
+| passenger, standby | `ensureScore` | `syncAudio` | `start`, `pause` (and `seek` via `pause`), the Audio button |
 | emergence | `buildScore(kind)` via `refreshAudio` | `startSound`, `stopSound` | `setPlaying` (frame loop `advancePlayback`); `refreshAudio` on sound toggle or score change |
 
 `refreshAudio` guards against a stale build with a request counter (`audioLoad`), so switching

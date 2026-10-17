@@ -35,6 +35,12 @@ swim. Four plates cost ~110 ms/frame at 1080 in Firefox: export is fine, playbac
   marks from the mask at full resolution. Restore `fillStyle` on shared scratch contexts: a glow's
   gradient left on one turned the next plate's full-canvas `fillRect` into a partial clear, and
   the fog vanished from the frame the glow began.
+- A room of boxes can be rendered rather than drawn ([Standby](../films/standby/FILM.md),
+  `renderRoom`): one ray per device pixel finds the surface, its material sets the plate values,
+  light terms cut and ink them, and the result goes straight into plate alpha; details are drawn
+  as vectors on top. Any camera move is free; edges are unantialiased, which the screen hides.
+  Thin periodic light (blind stripes) needs the full resolution: a 540² light buffer upsampled
+  to 1080 aliased them into wavy moiré.
 - Fireworks: each spark analytic from burst age with drag and gravity, into a mask that knocks out
   the night before inking. Star trails are arcs of length ω·(t − t0).
 - Sun glitter on water ([Roost](../films/roost/FILM.md)): glints switching on and off at

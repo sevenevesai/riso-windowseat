@@ -110,6 +110,24 @@ water; a child of Window Seat and anidoodle. Window-seat's compositor; a perspec
 | A view kept as pigment | `bakeTexture`, `TEX`, `TEX_GAIN`, `drawWing` (`look.tex`) | The outside at lift-off, baked once and mapped into the wing cells by an affine; the colour freezes as the wings return flat. |
 | Flight keyed where it is seen | `FLIGHT`, `PATH`, `pathAt`, `poseAt` | Keys are screen position and depth, converted through the camera of that moment. |
 
+## films/standby — one take from the bed, 52 s
+
+A DVD player's idle logo bounces round a CRT in a dark bedroom around 2001, nearly hits a corner
+three times and then does; the set switches off and the glow stars come up. The room is a
+per-pixel raycast feeding the live plates.
+
+| Technique | Where | Why copy it |
+|---|---|---|
+| Closed-form billiard | `logoXY`, `tri`, `BOUNCES`, `MISSES`, `logoInk` | Position solved backwards from the hit, so the corner lands on a chosen time and near misses fall out of the two wall periods; the shots, ink cycle and score read the same list. |
+| Room as a raycast | `renderRoom`, `nearestBox`, `BOXES`, `MATS` | One ray per device pixel through axis-aligned boxes; each hit's material sets its unlit plate values, then light terms cut and ink them, straight into plate alpha. 250–440 ms/frame. |
+| Blind stripes from a lamp | `blinds`, `WIN`, `LAMP`, `carAt` | Slat phase where the ray to the lamp crosses the window plane, blurred by the lamp's footprint, shadowed by the boxes; a moving lamp sweeps them. |
+| Coloured light on a dark overprint | `renderRoom` (`Ls`, `La`, `keep`) | Direct light cuts the darks and inks equally; bounce light opens more than it inks, so yellow reads as a pale wash instead of olive. |
+| A screen with depth | `inPicture`, `inRound`, `glassB`, `sheen`, `lip` | Rounded picture, a recess round the tube lit by the logo as it nears an edge, a window sheen, the logo's bloom; darker once the tube is dead. |
+| Camera that reacts | `approach`, `LEANS`, `CREEP`, `frameAt` | A creep plus one smoothstep lean per near miss, in log distance, so velocity stays continuous and each lean follows an event. |
+| CRT switch-off | `CRT`, `crtAt`, `drawCollapse` | Vertical squash with the picture inside, a line, a dot, an afterglow; the room light dies with the raster. |
+| Lights left in the dark | `drawStars`, `drawLED`, `vfdPath`, `borderInk` | Glow stars, a red standby LED (pink over orange), a blinking 7-segment 12:00, and a wallpaper border only the light reveals. |
+| Rim light on a foreground | `DUVET`, `drawDuvet`, `screenE` | Ridges filled past the frame; only crests facing the source catch its ink. |
+
 ## films/lumen — resonance form, 28 s
 
 A centre dot opens eight worlds through irises and sweeps, recollects them through one

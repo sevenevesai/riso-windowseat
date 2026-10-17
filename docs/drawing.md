@@ -94,6 +94,9 @@ the signature riso gesture. `shade` wraps it.
 - Open a dark ground with a soft knockout (`shade(…, {cut: true})`) before a light ink lands:
   yellow over green prints lime, on opened paper it prints as light. A soft knockout also lets a
   halo fade instead of ending on a cut circle.
+- Coloured light over a dark overprint: cut the darks by more than you ink. Equal amounts left
+  Standby's violet walls khaki under yellow light; its bounce light now opens 0.75 of the light
+  and inks 0.42, a pale wash of the light's colour.
 
 ## Depth
 

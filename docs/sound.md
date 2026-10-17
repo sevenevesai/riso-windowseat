@@ -48,6 +48,10 @@ moment on that time by starting `attack` earlier.
   0.04 envelope played about 12× too loud. Put tremolo and wobble on their own gain stage ahead of
   the envelope. The kit's `wind` adds its gusts this way; at its default depth the room tail masks
   the difference (its fall measured within 0.3 dB of a corrected version).
+- A gain node passes its default of 1 until its first automation event, so a source started
+  before its envelope plays at full scale. Standby's switch-off thump started 2 ms early; that
+  click set the true peak and pulled the whole score 16 dB under target. Start the source and its
+  envelope at the same time; a layer-by-layer peak table finds the culprit in one render.
 
 ## Sound follows a visible event
 
@@ -157,6 +161,9 @@ crossfade at the peak; pick long-ringing recordings for long run-ups
   a sparse score can pass a peak target far below platform loudness. When the ceiling wins, fix
   the peak, not the target. Platforms turn loud deliveries down and leave quiet ones quiet. A film
   may choose its dynamics; the tool warns beyond 1 LU and never enforces.
+- When the peak is a sync point where voices land together, offset the lower voice 15–25 ms (one
+  event to the ear) and soften the lead's attack before cutting levels. In Standby that, with
+  more sustained pad underneath, took the score from −18.6 to −16.8 LUFS with the hit intact.
 - Kit levels aren't comparable across instruments. In [Window Seat](../films/window-seat/FILM.md)
   a four-note `pad` at .03 sums eight oscillators, sat ~8 dB over everything and buried the
   foreground until cut to ~.012. A `contact` under ~150 Hz is a narrow band of a 3–6 ms burst and

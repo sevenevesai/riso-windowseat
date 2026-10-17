@@ -29,7 +29,7 @@ motion, camera motion, transition and atmosphere distinct. `docs/forms/resonance
 optional call-and-response form (used by `films/lumen` and `films/emergence`); use it only when
 asked or deliberately chosen. A single journey through one fixed frame (`films/window-seat`) or
 one continuous take of one event (`films/roost`, `films/nonpareil`, `films/eclosion`,
-`films/passenger`) is an equally valid alternative to a montage. Preserve approved direction in revisions.
+`films/passenger`, `films/standby`) is an equally valid alternative to a montage. Preserve approved direction in revisions.
 
 ## 2. Prove the hard part first
 
