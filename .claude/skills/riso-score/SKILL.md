@@ -12,7 +12,7 @@ sheet and a full muxed MP4 reviewed with the picture. Commands run in `tools/`.
 recorded strings timed from the picture (`films/roost`), found CC0 instruments (`films/held`),
 sampled handpan with edge-timed swells (`films/nonpareil`), a CC0 trio sharing the picture's
 clock (`films/eclosion`), procedural (`films/lumen`), procedural from the kit alone with a note
-per drawn mark (`films/passenger`), procedural with the subject's two rhythms as its two voices
+per drawn mark (`films/passenger`), the subject's two rhythms as two voices on CC0 lo-fi instruments
 (`films/standby`) and two switchable candidates (`films/emergence`).
 
 ## Before writing a note

@@ -22,7 +22,7 @@ source instead, open any `index.html` in a browser and press play.
 | [Nonpareil](films/nonpareil/) | 70 s | Paper marbling from the first drop to the one print it makes, scored for handpan |
 | [Eclosion](films/eclosion/) | 36 s | A monarch leaves its chrysalis, pumps its wings full and flies, in one take, scored for vibraphone, clarinet and horn |
 | [Passenger](films/passenger/) | 36 s | A butterfly draws itself in the fog on a train window and comes alive at sunrise; a child of Window Seat and [anidoodle](https://github.com/alexgreensh/anidoodle), scored procedurally |
-| [Standby](films/standby/) | 52 s | A DVD player's idle logo bounces round a bedroom TV around 2001 until it hits the corner; scored procedurally |
+| [Standby](films/standby/) | 52 s | A DVD player's idle logo bounces round a bedroom TV around 2001 until it hits the corner; scored as slow 90s lo-fi from CC0 recordings |
 | [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in call-and-response form |
 | [Emergence](films/emergence/) | 28 s | Lumen's sibling: how machines learned to listen, as nine worlds |
 
@@ -188,4 +188,6 @@ all CC0 1.0; see [`AUDIO-SOURCES.md`](films/nonpareil/AUDIO-SOURCES.md). Eclosio
 (VCSL), clarinet and horn (VSCO 2) are CC0 1.0; see
 [`AUDIO-SOURCES.md`](films/eclosion/AUDIO-SOURCES.md). Its wing geometry is measured from
 "Danaus plexippus MHNT dos.jpg" by Didier Descouens (Wikimedia Commons, CC BY-SA 4.0); see
-[`FILM.md`](films/eclosion/FILM.md).
+[`FILM.md`](films/eclosion/FILM.md). Standby's electric piano (Yamaha TX81Z), upright piano,
+kalimba and soft drums are VCSL recordings, CC0 1.0; see
+[`AUDIO-SOURCES.md`](films/standby/AUDIO-SOURCES.md).

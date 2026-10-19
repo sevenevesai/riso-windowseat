@@ -102,16 +102,18 @@ picture's train and water as foley.
 | Bars that land on an event | `flightAndLanding` (`bar`, `b0`) | Four 2 s bars from lift-off put the fifth downbeat on the landing. |
 | Dry room with the kit's impulse | `buildScore` (`room.wet` .032) | The kit impulse's hot wet level cut, as Held did; see `docs/sound.md`. |
 
-## films/standby — procedural from the kit, 52 s
+## films/standby — CC0 lo-fi instruments on the subject's two rhythms, 52 s
 
-D major with a lydian II at 96 BPM from the kit alone: FM e-piano and FM bell, pads, music box,
-synthesised crickets and the set's own hum and whine.
+D major with a lydian II at 96 BPM in half time: VCSL TX81Z FM piano, upright piano, kalimba and
+soft drums (`films/standby/AUDIO-SOURCES.md`) through a tape chain, over synthesised crickets and
+the set's own hum and whine.
 
 | Technique | Where | Why copy it |
 |---|---|---|
 | The subject's two rhythms as two voices | `bounceVoices`, `XWALLS`, `YWALLS`, `PROG`, `YMEL` | x walls change the chord on a low voice, y walls carry the melody; a near miss is the next chord's note arriving early, so the flam tightens as the picture's does. |
 | Attacks that fuse without stacking | `bounceVoices` (the hit) | At the corner the bass lands 20 ms after the melody: one event to the ear, and the true peak no longer sets the reel's level. |
 | A sound that stops at the turn | `roomBed`, `switchOff` | Mains hum and a 15.734 kHz line whine run under everything and cut with the picture, then a relay click, a falling thump and static crackle. |
+| Tape and vinyl on a sampled mix | `tapeChain`, `vinylBed`, `samp` | Wow and flutter feed every sample's `detune`; saturation and a rolled-off top on the master; seeded pops and hiss that stop with the picture's switch-off. |
 | Insects from a buffer | `crickets` | Per-sample chirp trains with seeded rhythm, pitch and pan, low-passed as if through glass. |
 | A pass-by | `carPass` | Pink noise through a band that sweeps up and down, a low engine whose pitch falls, panned with the street. |
 

@@ -1,6 +1,6 @@
 # Standby
 
-52 seconds, 1080 × 1080, 30 fps, scored (procedural, D major with a lydian II, 96 BPM).
+52 seconds, 1080 × 1080, 30 fps, scored (slow 90s lo-fi from CC0 recordings, D major with a lydian II, 96 BPM in half time).
 Authoritative source: `index.html`. Delivery: `out/standby.mp4`, the Firefox render
 (`render.mjs`) of `index.html` with its score muxed.
 
@@ -88,38 +88,51 @@ the VFD; yellow and green the stars. Most frames use four or five.
 
 ## Score
 
-D major with a lydian II, 96 BPM, bars counted from the first x wall (1.0 s), so every x wall is
-a downbeat two bars after the last. Kit-only (`studies/sound.html`, `paper` and `tick` renamed
-`paperFx` and `tickFx`; Window Seat's `impulse`, room wet .2).
+Slow 90s lo-fi: D major with a lydian II, 96 BPM in half time (a cajon backbeat every 2.5 s) with
+swung eighths (17 % of an eighth), bars counted from the first x wall (1.0 s), so every x wall is
+a downbeat two bars after the last. The first score was kit-only and bell-bright; this one
+replaces its voices and keeps its structure. Instruments are CC0 VCSL recordings embedded in
+`#sample-bank`, listed with licenses in [`AUDIO-SOURCES.md`](AUDIO-SOURCES.md) and rebuilt by
+`build-sample-bank.py`. Kit (`studies/sound.html`, `paper` and `tick` renamed `paperFx` and
+`tickFx`; Window Seat's `impulse`, room wet .2) supplies the engine, the room and the
+synthesised effects.
 
-- The two wall rhythms are the two voices: x walls play a low FM e-piano on the chord root and
-  change the chord (Dmaj7, E/D, Bm9, Gmaj7#11, F#m7, Gmaj9, A7sus4, D add9 at the corner); y walls
-  play a high FM bell melody that climbs to D6. A near miss is a y note landing early, the next
-  chord's note as an anticipation; the flam closes 0.35 → 0.23 → 0.12 s and at the corner both
-  voices land together (the bass 20 ms behind so their attacks don't stack). Pans follow the
+- The two wall rhythms are still the two voices. x walls roll the chord on a Yamaha TX81Z FM
+  piano (Dmaj7, E/D, Bm9, Gmaj7#11, F#m7, Gmaj9, A7sus4, D add9 at the corner), with the root on
+  the same piano low-passed at 240 Hz as bass; two comps and a pickup follow before the next wall.
+  y walls play the melody on a soft upright piano, an octave lower than the old bell line, and
+  climb to D5. A near miss is a y note landing early, the next chord's note as an anticipation;
+  the flam closes 0.35 → 0.23 → 0.12 s, and a kalimba doubles each near miss an octave up. At the
+  corner both voices land together, the chord and bass 20 ms behind the melody. Pans follow the
   logo's projected x.
-- Bed: pads per chord in a crescendo across the seven chords; the set's mains hum (60/120/180 Hz)
-  and line-output whine (15.734 kHz, very quiet), both cut at the switch-off; three crickets
-  through the closed window, louder in the dark.
-- Last approach: a soft eighth-note music-box pulse on the chord tones from 26.2 s, growing, and
-  a triangle riser into the corner.
-- Corner: low body, a staggered bell chord (D F# A E), then music-box sparkles falling.
-- Switch-off: relay click, the high voltage letting go (a falling thump), static crackle on the
-  glass, and the music stops. A deliberate hush (about −15 dB at 40.9 s) returns with the
-  crickets and a music box playing the melody's first notes under the stars, ending on D with a
-  low drone; the car passes (tyres, engine, a doppler band sweep) panned left.
+- Groove: from the second chord, a soft kick, a cajon backbeat, ghost hats and a brush-like shaker,
+  each with a few ms of seeded lag, growing over the first chords and denser in the last period.
+  They stop at the corner.
+- Bed: a quiet kit pad per chord, mains hum (60/120/180 Hz) and the line whine (15.734 kHz), both
+  cut at the switch-off, three crickets. The tape: wow (0.37 Hz, 7 cents) and flutter (5.3 Hz,
+  2.2 cents) on every pitched sample, a soft tanh saturation, a 6.4 kHz low-pass and a 2 dB shelf cut
+  from 2.8 kHz on the master. Seeded vinyl pops (about 7 a second) and hiss run with the music and
+  stop with the switch-off.
+- Last approach: a kalimba pulse in eighths on the chord tones from 26.2 s, growing, and a quiet
+  triangle riser into the corner.
+- Corner: a soft kick and the sub, the chord and bass, a staggered kalimba chord (D F# A E), then
+  kalimba sparkles falling.
+- Switch-off: relay click, the high voltage letting go, static crackle on the glass; the music, the
+  drums, the pops and the hiss stop. The hush returns with the crickets and a kalimba playing the
+  melody's first notes under the stars, soft FM piano notes (D, A, E, D) and a low drone, ending on D;
+  the car passes (tyres, engine, a doppler band sweep) panned left.
 
 Marks (`__riso.marks`, from `MISSES`, `T` and `CAR`): near misses 5.654, 15.769, 25.885; hit 36.0;
 switch-off 39.25; car 47.3.
 
-Measured (Firefox, `audio.mjs --twice --engine firefox --ffmpeg`):
-`I −16.8 LUFS, LRA 10.0 LU, TP −1.0 dBTP, clipped 0, firefox byte-identical`. Onsets: −4, −4 and
-−20 ms at the near misses, none detected at the hit (peak +30 ms), −60 ms at the switch-off; the
-car is a swell (peak −15 ms). The −20 and −60 ms readings lock onto beating in the pad bed (10 ms
-RMS printed around both); those notes start on their marks by construction. Bands: 2.2 % sub,
-65 % low, 28 % low-mid, 4.3 % mid, 0.5 % high, 0.3 % air: dark by intent. Valleys: 39.7 s
-(−22.8 dB, the deliberate hush after the switch-off), 40.8 s (−10.7 dB) and 51.65 s (the
-ending's fade). Nothing has been heard.
+Measured (Firefox, `audio.mjs --twice --engine firefox --ffmpeg`): `I −16.7 LUFS, LRA 9.0 LU,
+TP −1.0 dBTP, clipped 0, firefox byte-identical`; the true peak is set by the third near miss
+(26.03 s), which holds the level 0.7 LU under target. Onsets: −4, −4 and 0 ms at the near misses,
+0 ms at the hit; the switch-off reads +45 ms (a mark where the music ends), the car is a swell
+(peak +165 ms). Bands: 8.0 % sub, 51 % low, 38 % low-mid, 2.8 % mid, 0.2 % high, 0 % air: dark and
+rolled off by intent; the old score was 2.2 % sub, 65 % low, 0.5 % high. One valley, 20.9 s
+(−11.9 dB), the breath before the fifth chord. The measured line for the old score was
+`I −16.8 LUFS, LRA 10.0 LU, TP −1.0 dBTP`. Nothing has been heard.
 
 ## References inspected (Wikimedia Commons, 2026-10-17; downloads in `out/standby-refs/`, git-ignored)
 
@@ -145,13 +158,13 @@ mark; no brand appears in frame.
 
 | Check | Result |
 |---|---|
-| Delivery decode (`out/standby.mp4`) | 52.00 s, 1560 frames, 1080² H.264 High yuv420p, 30 fps, AAC 48 kHz stereo 194 kb/s; no decode errors; muxed I −16.8 LUFS, LRA 10.0 LU, peak −1.0 dBFS; 95.5 MB |
+| Delivery decode (`out/standby.mp4`) | 52.00 s, 1560 frames, 1080² H.264 High yuv420p, 30 fps, AAC 48 kHz stereo 193 kb/s; no decode errors; muxed I −16.8 LUFS, LRA 9.0 LU, peak −1.0 dBFS; 95.5 MB (re-rendered 2026-10-19 with the lo-fi score) |
 | `review.mjs --mp4` (delivery) | median 3.24 % of pixels change per frame; 0 runs under 0.1 % for ≥ 0.5 s |
 | `verify.mjs` (Chromium and Firefox, 26 times incl. every shot boundary) | seek is pure in t; contract holds |
 | Pop scan of the delivery MP4 (360 px, blurred; [quality-bar](../../docs/quality-bar.md)) | 5 flags, all designed: 36.00 s (the hit's flare, 15.4 vs local 0.7) and 39.27–39.37 s (the raster collapse). Per-second mean change 0.2–0.9 through the approach, 1.3 at the hit, 2.6 at the collapse, 0.0–0.3 in the afterglow and final hold, 3.7 at the car |
 | Strips read | near misses 5.2–6.3, 15.3–16.4 and 25.4–26.5 at 0.1 s; the hit 35.9–36.6 at 1/30 s; the switch-off 39.15–39.65 at 1/30 s (pink logo, a one-frame flash, the band, the line, the dot, the standby light coming on); the car 44.6–50.2 at 0.4 s; the whole film at 1.5 s |
 | 1:1 crops | the hit's corner (logo legible in the flare), the third near miss (lip lit), the VFD, encoded MP4 frames at 20, 36.03, 44.5 and 47.6 s (from a rough render before the last value changes) |
-| Score | as above |
+| Score | as above; the delivery was re-rendered with it (`render.mjs`) |
 
 Previews (`preview.webp` 540 px at 12 fps, `preview-thumb.webp` 300 px at 10 fps) are four beats of
 the delivery MP4: the third near miss, the hit, the collapse, the headlight sweep.
@@ -165,15 +178,16 @@ the score follows the scored films before it.
 ## Remaining weaknesses
 
 - Nobody has watched it at speed or listened to it; judgement comes from strips, sheets, crops
-  and meters. Worth watching and hearing first: 5.4–6.3 s (the first near miss is small: the
+  and meters. Worth watching and hearing first: 1–7 s (the first chord and groove coming in), 5.4–6.3 s (the first near miss is small: the
   logo about 90 px wide, the gap about 17 px), 25.7–26.2 s (the third near miss's double flash and
   flam), 35.8–36.6 s (the hit), 39.2–40 s (the switch-off and the hush), 45–50 s (the car).
 - The 12:00 is legible mid-film only; in the final framing it is a small green blink beside the
   red standby light.
 - The TV and stand are mostly dark silhouettes; their form comes from the glass, the bezel's
   recess and the stripes behind them, not from modelling.
-- The score is dark (65 % low band). The 15.734 kHz whine is very quiet and many listeners will
-  not hear it; whether it survives every player's AAC decoder is unchecked.
+- The score is dark by intent (nothing above 4 kHz beyond the hats and kalimba). Nobody has heard the
+  tape wow, the half-time groove's feel against the picture, or whether the 15.734 kHz whine
+  survives every player's AAC decoder; the pops and hiss levels are set by meter only.
 - Raycast edges are unantialiased; at 1080 the screen hides the 1 px steps, but a downscaled
   preview shows some stair-stepping and moiré, as all halftone previews do.
 - The MP4 is not uploaded to the v1.0 release.

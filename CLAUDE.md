@@ -48,7 +48,8 @@ Firefox is the primary engine. `out/` is disposable and git-ignored.
 |---|---|
 | `films/window-seat/` | Showcase: sampled piano, piano-bank rebuild. |
 | `films/roost/`, `held/`, `nonpareil/`, `eclosion/` | Sampled-score films: starlings, kite, marbling, monarch eclosion. |
-| `films/passenger/`, `films/standby/` | Kit-scored films: a fog doodle comes alive; a DVD logo hits the corner. |
+| `films/passenger/` | Kit-scored film: a fog doodle comes alive. |
+| `films/standby/` | A DVD logo hits the corner; lo-fi score from CC0 VCSL recordings. |
 | `films/lumen/`, `films/emergence/` | 28 s shorts in the Resonance form. |
 | `prints/` | Cabinet, Sceneries and Workings; workings donates the print kit. |
 | `docs/` | The brief and craft docs; `brief.md` tables which to read when. |
