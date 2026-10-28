@@ -14,9 +14,9 @@ and print since was made with that kit.
 
 ## Films
 
-All are 1080 × 1080, 30 fps. Every film except Standby plays at
-[seveneves.ai/riso](https://seveneves.ai/riso/) and is an MP4 on the
-[v1.0 release](https://github.com/sevenevesai/riso-windowseat/releases/tag/v1.0). To watch the
+All are 1080 × 1080, 30 fps, and each is an MP4 on the
+[v1.0 release](https://github.com/sevenevesai/riso-windowseat/releases/tag/v1.0). Every film
+except Standby also plays at [seveneves.ai/riso](https://seveneves.ai/riso/). To watch the
 source instead, open any `index.html` in a browser and press Play; sound starts off and has its
 own toggle.
 
@@ -120,8 +120,7 @@ closer, and the camera leans in after each. When it lands, the screen flares pin
 timer switches the set off: the picture collapses to a line, then a dot. In the dark the glow
 stars come up, the DVD/VCR blinks 12:00, and a passing car sweeps the blind stripes across the
 wall. The room is a per-pixel raycast feeding the plates. In the score the logo's two wall
-rhythms are its two voices, drifting into phase at the corner. Its MP4 is not on the v1.0
-release; `tools/render.mjs` makes it.
+rhythms are its two voices, drifting into phase at the corner.
 
 <br clear="right">
 

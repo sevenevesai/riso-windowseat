@@ -1,8 +1,8 @@
 # Standby
 
 52 seconds, 1080 × 1080, 30 fps, scored (slow 90s lo-fi from CC0 recordings, D major with a lydian II, 96 BPM in half time).
-Authoritative source: `index.html`. Delivery: `out/standby.mp4`, the Firefox render
-(`render.mjs`) of `index.html` with its score muxed.
+Authoritative source: `index.html`. Delivery: the MP4 is attached to [the v1.0 release](https://github.com/sevenevesai/riso-windowseat/releases/tag/v1.0)
+as `standby.mp4`, the Firefox render (`render.mjs`) of `index.html` with its score muxed.
 
 ## Premise
 
