@@ -1,18 +1,24 @@
 # riso-windowseat
 
 Procedural risograph films and prints, each a single `index.html` of Canvas 2D and Web Audio:
-no libraries, fonts, images or network calls. The repo began as the release of **Window Seat**.
-Making it, and the two shorts before it, produced a reusable kit of Claude Code skills, craft
-docs and a render harness. Roost, Held, Nonpareil, Eclosion, Passenger and Standby were made with
-it next, and two print series, Cabinet and Sceneries.
+no libraries, fonts, images or network calls. The sampled scores carry their recordings inside
+the file. The repo began as the release of **Window Seat**. Making it, and the two shorts before
+it, produced a reusable kit of Claude Code skills, craft docs and a render harness. Every film
+and print since was made with that kit.
+
+**[Watch the films](https://seveneves.ai/riso/)** ·
+[Download the MP4s](https://github.com/sevenevesai/riso-windowseat/releases/tag/v1.0) ·
+[Make your own](#make-your-own)
 
 ![Window Seat, dawn from the viaduct](films/window-seat/poster.png)
 
 ## Films
 
-All are 1080 × 1080, 30 fps. MP4s are on the
+All are 1080 × 1080, 30 fps. Every film except Standby plays at
+[seveneves.ai/riso](https://seveneves.ai/riso/) and is an MP4 on the
 [v1.0 release](https://github.com/sevenevesai/riso-windowseat/releases/tag/v1.0). To watch the
-source instead, open any `index.html` in a browser and press play.
+source instead, open any `index.html` in a browser and press Play; sound starts off and has its
+own toggle.
 
 | Film | Length | |
 |---|---|---|
@@ -21,10 +27,10 @@ source instead, open any `index.html` in a browser and press play.
 | [Held](films/held/) | 70 s | A kite that flies only while something holds its line, scored for found instruments |
 | [Nonpareil](films/nonpareil/) | 70 s | Paper marbling from the first drop to the one print it makes, scored for handpan |
 | [Eclosion](films/eclosion/) | 36 s | A monarch leaves its chrysalis, pumps its wings full and flies, in one take, scored for vibraphone, clarinet and horn |
-| [Passenger](films/passenger/) | 36 s | A butterfly draws itself in the fog on a train window and comes alive at sunrise; a child of Window Seat and [anidoodle](https://github.com/alexgreensh/anidoodle), scored procedurally |
-| [Standby](films/standby/) | 52 s | A DVD player's idle logo bounces round a bedroom TV around 2001 until it hits the corner; scored as slow 90s lo-fi from CC0 recordings |
-| [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in call-and-response form |
-| [Emergence](films/emergence/) | 28 s | Lumen's sibling: how machines learned to listen, as nine worlds |
+| [Passenger](films/passenger/) | 36 s | A butterfly draws itself in the fog on a train window and comes alive at sunrise, scored procedurally |
+| [Standby](films/standby/) | 52 s | A DVD player's idle logo bounces round a bedroom TV around 2001 until it hits the corner, scored as slow 90s lo-fi |
+| [Lumen](films/lumen/) | 28 s | A seed that contains a sun; the first short, in the call-and-response [Resonance form](docs/forms/resonance.md) |
+| [Emergence](films/emergence/) | 28 s | Lumen's sibling in the same form: how machines learned to listen, as nine worlds |
 
 ### Window Seat
 
@@ -35,7 +41,7 @@ pixel and every sound except the piano is procedural.
 |---|---|
 | 0–19 s | Golden departure from a platform, fields, a red truss bridge, a conifer cutting, a tunnel |
 | 19–38 s | A night city with a canal and a level crossing; another train overtakes, passengers in its windows |
-| 38–57 s | Fireworks over a lake, sleeper hours with star trails, pre-dawn fog |
+| 38–57 s | Fireworks over a far town, reflected in a lake; sleeper hours with star trails; pre-dawn fog |
 | 57–78 s | Dawn from a viaduct, rain streaming back along the glass, a lakeside halt under a rainbow |
 
 The score, "A Light Left in the Window", is an original piano piece in 6/8 whose phrasing follows
@@ -141,16 +147,23 @@ I directed each work; Claude Code (Anthropic's coding agent) wrote the code, usi
 rules and docs in this repo. A work is designed in its `FILM.md` or `PRINT.md`, its hardest frame
 is proved first, and then it is inspected as frame strips, 1:1 crops and loudness sheets rendered
 by `tools/`. Every frame is a pure function of time (`seek(t)`), so any moment can be inspected
-exactly and the MP4 cannot drop frames. Each record keeps the design decisions and measurements,
-and lists the work's remaining weaknesses.
+exactly and the MP4 cannot drop frames. Each record keeps the design decisions and measurements;
+from Window Seat on, each also lists the work's remaining weaknesses.
 
 ## Make your own
+
+You need Node.js 18 or later and [Claude Code](https://code.claude.com/docs/en/overview).
 
 ```
 git clone https://github.com/sevenevesai/riso-windowseat
 cd riso-windowseat/tools
 npm install && npm run setup && npm test
 ```
+
+`npm install` brings playwright-core and a bundled ffmpeg. `npm run setup` downloads the Chromium
+and Firefox builds the harness drives; the released MP4s are Firefox renders
+(`render.mjs --engine firefox`). `npm test` runs the harness's self-tests and exits 0 when they
+pass.
 
 Then open Claude Code in the repo root and ask, for example:
 
@@ -161,33 +174,36 @@ Then open Claude Code in the repo root and ask, for example:
 
 `CLAUDE.md` gives the session the contract and commands. The `riso-film`, `riso-still` and
 `riso-score` skills in `.claude/skills/` carry the workflow and gates. Each skill's `examples.md`
-points to the routines in the shipped films that are worth reusing. A hook warns when an edit
-breaks determinism.
+points to the routines in the shipped films that are worth reusing. After each edit to a film, a
+hook flags any `Math.random()` call and a missing `window.__riso`.
 
 ## What's inside
 
 | Path | Contents |
 |---|---|
-| `films/` | The nine films, each with its `FILM.md`; Window Seat, Roost, Held, Nonpareil and Eclosion include sample credits and bank rebuild scripts |
-| `prints/` | Three print series: Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
-| `docs/` | The craft: brief, visual development, drawing, figures, scene space, motion, live plates, sound, quality bar |
-| `studies/` | Interactive A/B studies of each technique, and the sound kit |
-| `tools/` | Scaffolding, verification, contact sheets, audio analysis and MP4 export ([README](tools/README.md)) |
+| `films/` | One folder per film: `index.html` and its `FILM.md`; sampled films add `AUDIO-SOURCES.md` and the script that rebuilds their sample bank |
+| `prints/` | Cabinet and Sceneries with their `PRINT.md`, and Workings, which donates the print kit new works start from |
+| `docs/` | The craft: [brief](docs/brief.md) (which doc to read when), visual development, drawing, characters, scene space, motion, live plates, sound, quality bar, and the optional Resonance form |
+| `studies/` | The drawing, composition, scene-space and sound kits as interactive A/B study pages |
+| `tools/` | Scaffolding, verification, contact sheets, still and MP4 export, audio analysis ([README](tools/README.md)) |
 | `.claude/` | Skills, the ink-plate rule and the determinism hook |
 
 ## License
 
-MIT, see [LICENSE](LICENSE). The piano recordings embedded in Window Seat are Salamander Grand
-Piano V3 by Alexander Holm under CC BY 3.0; see
-[`AUDIO-SOURCES.md`](films/window-seat/AUDIO-SOURCES.md). The string recordings embedded in
-Roost are VSCO 2 Community Edition by Versilian Studios under CC0 1.0; see
-[`AUDIO-SOURCES.md`](films/roost/AUDIO-SOURCES.md). Held's instruments are from Versilian's VCSL
-and VSCO 2, also CC0 1.0; see [`AUDIO-SOURCES.md`](films/held/AUDIO-SOURCES.md). Nonpareil's
-handpan is GAMEDRIX974's HandPan pack on Freesound and its cello and contrabass are from VSCO 2,
-all CC0 1.0; see [`AUDIO-SOURCES.md`](films/nonpareil/AUDIO-SOURCES.md). Eclosion's vibraphone
-(VCSL), clarinet and horn (VSCO 2) are CC0 1.0; see
-[`AUDIO-SOURCES.md`](films/eclosion/AUDIO-SOURCES.md). Its wing geometry is measured from
-"Danaus plexippus MHNT dos.jpg" by Didier Descouens (Wikimedia Commons, CC BY-SA 4.0); see
-[`FILM.md`](films/eclosion/FILM.md). Standby's electric piano (Yamaha TX81Z), upright piano,
-kalimba and soft drums are VCSL recordings, CC0 1.0; see
-[`AUDIO-SOURCES.md`](films/standby/AUDIO-SOURCES.md).
+The code, films and prints are MIT, see [LICENSE](LICENSE), except the third-party material
+below. [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) sets out the two parts with terms beyond
+MIT: Window Seat's piano recordings (CC BY 3.0; keep the credit when you redistribute the film
+or its exports), and Eclosion's wing geometry, measured from "Danaus plexippus MHNT dos.jpg" by
+Didier Descouens (Wikimedia Commons, CC BY-SA 4.0) and offered under that license.
+
+Each sampled film's `AUDIO-SOURCES.md` credits its recordings and pins their source commits. CC0
+asks for no credit, so for those recordings the credit is provenance.
+
+| Film | Recordings | License |
+|---|---|---|
+| [Window Seat](films/window-seat/AUDIO-SOURCES.md) | Salamander Grand Piano V3, Alexander Holm | CC BY 3.0 |
+| [Roost](films/roost/AUDIO-SOURCES.md) | Strings from VSCO 2 Community Edition, Versilian Studios | CC0 1.0 |
+| [Held](films/held/AUDIO-SOURCES.md) | Instruments from Versilian Studios' VCSL and VSCO 2 | CC0 1.0 |
+| [Nonpareil](films/nonpareil/AUDIO-SOURCES.md) | Handpan from GAMEDRIX974's HandPan pack on Freesound; cello and contrabass from VSCO 2 | CC0 1.0 |
+| [Eclosion](films/eclosion/AUDIO-SOURCES.md) | Vibraphone from VCSL; clarinet and horn from VSCO 2 | CC0 1.0 |
+| [Standby](films/standby/AUDIO-SOURCES.md) | Electric piano (Yamaha TX81Z), upright piano, kalimba, bass drum, hi-hat and shaker from VCSL | CC0 1.0 |
